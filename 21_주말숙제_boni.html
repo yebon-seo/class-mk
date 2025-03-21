@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아바타 컨텐츠정렬</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/21_주말숙제_boni.css">
+  <!--<style>
+    *{margin: 0; padding: 0;}
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    .container {
+      width: 1200px;
+      margin: auto;
+    }
+    #top {
+      width: 1200px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #top > .square {
+      background-color: gold;
+      width: 430px;
+      height: 340px;
+      margin-top: 140px;
+      border-radius: 0 20px 20px 0;
+      
+    }
+    #top > .txt {
+      margin-top: 140px;
+      position: relative;
+      /* display: inline-block; */
+    }
+    #top > .txt > h3 {
+      font-size: 20px;
+      font-weight: normal;
+      color: #999;
+      letter-spacing: 2px;
+    }
+    #top > .txt > h2 {
+      font-size: 60px;
+      color: #333;
+    }
+    #top > .txt > p {
+      font-size: 16px;
+      color: #333;
+      line-height: 25px;
+      margin-top: 20px;
+      letter-spacing: 1px;
+    }
+    #top > .txt > button {
+      background-color: #333;
+      color: #fff;
+      width: 160px; height: 50px;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+    }
+
+    #top > .float-box {
+      display: flex;
+      gap: 20px;
+      position: absolute;
+      left: 40px;
+    }
+    #top > .float-box .box {
+      width: 270px; height: 270px;
+      padding: 45px 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px #ccc;
+      margin-top: 20px;
+    }
+    #top > .float-box .box i {
+      font-size: 50px;
+      color: #fff;
+      border-radius: 50%;
+      margin-top: 45px;
+    }
+    #top > .float-box > .wrap-left > .box:nth-of-type(1) i {
+      background-color: rgb(14, 189, 189);
+    }
+    #top > .float-box > .wrap-left > .box:nth-of-type(2) i {
+      background-color: rgb(228, 206, 1);
+    }
+    #top > .float-box .box:nth-of-type(2) i {
+      background-color: rgb(255, 4, 121);
+    }
+    #top > .float-box .box:nth-of-type(1) i {
+      background-color: rgb(1, 106, 252);
+    }
+    #top > .float-box .box h2 {
+      font-size: 18px;
+      color: #333;
+      margin: 30px 0;
+    }
+    #top > .float-box .box p {
+      font-size: 14px;
+      color: #333;
+      letter-spacing: 1px;
+      line-height: 20px;
+    }
+
+    #top > .float-box > .wrap-right {
+      position: absolute;
+      transform: translate(110%,140px);
+    } /*모르겠슴..*/
+
+
+    /*bottom*/
+    #bottom {
+      min-width: 1200px;
+      margin: auto;
+    }
+    #bottom .circle {
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background-color: gold;
+      margin-top: 220px;
+      margin-left: auto;
+      transform: translateX(80%);
+    }
+  </style> -->
+</head>
+<body>
+  <div class="container">
+    <section id="top">
+      <div class="square"></div>
+      <div class="float-box">
+        <div class="wrap-left">
+          <div class="box">
+            <i class="fa-solid fa-camera"></i>
+            <h2>Sample Headline</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci praesentium provident nisi, corporis, numquam accusantium </p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-camera"></i>
+            <h2>Sample Headline</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.Adipisci praesentium provident nisi, corporis, numquam accusantium </p>
+          </div>
+        </div>
+        <div class="wrap-right">
+          <div class="box">
+            <i class="fa-solid fa-camera"></i>
+            <h2>Sample Headline</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci praesentium provident nisi, corporis, numquam accusantium </p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-camera"></i>
+            <h2>Sample Headline</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci praesentium provident nisi, corporis, numquam accusantium </p>
+          </div>
+        </div>
+        
+      </div>
+      <div class="txt">
+        <h3>ABOUT</h3>
+        <h2>Need Amazing <br> Design?</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Exercitationem laborum aspernatur incidunt,<br> 
+          deleniti quod eveniet modi dolor, saepe unde obcaecati<br> 
+          labore in consequatur neque doloremque corporis inventore!<br> 
+          Exercitationem, labore fugit!
+          Lorem ipsum dolor sit amet<br> consectetur adipisicing elit.<br>
+          Exercitationem laborum aspernatur incidunt,<br> 
+          deleniti quod eveniet modi dolor, saepe unde obcaecati<br> 
+          labore in consequatur neque doloremque corporis inventore!<br> 
+          Exercitationem, labore fugit!
+        </p>
+        <button>READ MORE</button>
+      </div>
+    </section>
+
+    <section id="bottom">
+      <div class="circle"></div>
+      <div class="txt">
+        <h2>Web Development<br>
+        &amp; Design</h2>
+        <div class="bg">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Exercitationem laborum aspernatur incidunt,<br> 
+          deleniti quod eveniet modi dolor, saepe unde obcaecati<br> 
+          labore in consequatur neque doloremque corporis inventore!<br> 
+          Exercitationem, labore fugit!
+          Lorem ipsum dolor sit amet<br> consectetur adipisicing elit.</p>
+        </div>
+        <span>Image by ...</span>
+        <h4>LEARN MORE</h4>
+      </div>
+      <div class="pic">
+        <img src="images/avatar.jpg" alt="avatar">
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>콜백함수</title>
+</head>
+<body>
+  <script>
+    // 1. test1 함수생성
+    function test1(f){ // 5.9. test1 함수가 호출된다. 매개변수 f에 add/mulyply함수가 전달
+      let result = f(3,4);
+      console.log(result) //6.10. add/mulyply함수가 호출되고, 그 리턴값이 result 변수에 대입
+    }
+    // 2. add함수생성
+    function add(a,b){
+      return a + b;
+    }
+    // 3. multiply 함수생성
+    function multiply(a,b){ //8.
+      return a * b;
+    }
+
+    function divide(a,b){
+      return a / b;
+    }
+    function minus(a,b){
+      return a - b;
+    }
+
+    test1(add);
+    test1(multiply);
+    test1(divide);
+    test1(minus);
+
+    //화살표함수 (새로나온 문법)
+
+    const add2 = (a,b) => {
+      return a + b; 
+    }
+    const multiply2 = (a,b) => {
+      return a * b; 
+    }
+    test1(add2);
+    test1(multiply2);
+  </script>
+</body>
+</html>

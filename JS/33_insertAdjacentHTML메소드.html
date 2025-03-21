@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>insertAdjacentHTML메소드</title>
+</head>
+<body>
+  <!-- beforebegin -->
+  <div id="foo" style="border: 1px solid red;">
+    <!-- afterbegin -->
+    text
+    <!-- beforeend -->
+  </div>
+  <!-- afterend -->
+
+  <script>
+    //선택자.insertAdjacentHTML(위치,삽입할 요소)
+    //선택자.insertAdjacentElement(위치,삽입할 요소)
+    const foo = document.querySelector("#foo");
+    foo.insertAdjacentHTML('beforebegin','<p>beforebegin</p>')
+    foo.insertAdjacentHTML('afterbegin','<p>afterbegin</p>')
+    foo.insertAdjacentHTML('beforeend','<p>beforeend</p>')
+    foo.insertAdjacentHTML('afterend','<p>afterend</p>')
+    
+  </script>
+</body>
+</html>

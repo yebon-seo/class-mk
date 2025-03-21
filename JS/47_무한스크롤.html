@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>무한스크롤</title>
+  <style>
+   
+    *{margin: 0;padding: 0;}
+    .box{
+      width: 100%;
+      height: 100vh; /*브라우저 높이*/
+    }
+    .box:nth-child(odd){
+      background-color: gold;
+    }
+    .box:nth-child(even){
+      background-color: tomato;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="box">1번박스</div>
+    <div class="box">2번박스</div>
+  </section>
+
+  <script>
+    // scroolHeight = 요소높이를 구하는데 안보이는 부분 포함
+    // InnerHeight = 실제 사용자가 보고 있는 영역의 높이(패딩,마진 포함안됨)
+    // offsetHeight = 요소의 실제 높이(패딩,마진 포함)
+    // clientHeight = 요소의 실제 높이(패딩만 포함)
+
+    //추가할 요소의 순번
+    let count = 2;
+    //window 객체에 스크롤 이벤트생성
+    window.addEventListener('scroll',() => {
+      //window.innerHeight : 실제 사용자가 보는 높이-브라우저사이즈가 줄어들면 같이 줄어듬
+      //window.innerHeight + window.scrollY(스크롤이 이동한거리) = 스크롤이 바닥에 닿았다
+      if(window.innerHeight + window.scrollY >= document.body.offsetHeight){
+        //사용자가 보고있는 높이와 스크롤해서 이동한 최대의 거리 >= 요소의 실제 높이
+        // console.log("끝")
+        const toAdd = document.createElement("div")
+        toAdd.classList.add("box")
+        toAdd.textContent = `${++count}번째 블록`
+
+        const section = document.querySelector("section")
+        section.appendChild(toAdd);
+        //한줄로 쓸려면
+        //document.querySelector("section").appendChild(toAdd);
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주말숙제</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="JS/script.js">
+  <script defer src="JS/script.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Katibeh&family=Nanum+Gothic&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+
+    }
+
+    /*header*/
+    header {
+      height: 70px;
+    }
+
+    header>.inner {
+      width: 1000px;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    header .inner>.logo {
+      font-family: serif;
+      padding-top: 20px;
+      font-size: 30px;
+      font-style: italic;
+    }
+
+    header .logo>span {
+      font-family: "Katibeh", serif;
+      letter-spacing: 2px;
+    }
+
+    header .menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-family: "Nanum Gothic", serif;
+
+    }
+
+    header .menu ul {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    header .menu>.icon {
+      margin-left: 30px;
+    }
+
+    header .menu>.icon>a {
+      padding-right: 5px;
+    }
+
+
+    /*첫번째 섹션*/
+    .main-1 {
+      width: 100%;
+      height: 600px;
+      position: relative;
+
+    }
+
+    .main-1 .inner {
+      width: 1000px;
+      height: 600px;
+      /* padding: 100px 0; */
+      position: absolute;
+      transform: translate(-50%, -50%);
+      /* 정확한 중앙 정렬 */
+      top: 50%;
+      left: 50%;
+      padding: 100px 0;
+      /* 위, 아래에 100px의 여백 추가 */
+    }
+
+    .main-1 img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+
+    }
+
+    .main-1 .inner h2 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #f1f1f1;
+      font-size: 60px;
+    }
+
+    .inner .plus {
+      width: 50px;
+      height: 50px;
+      margin-left: 20px;
+    }
+
+    .main-1 .inner h3 {
+      color: #f1f1f1;
+      font-size: 45px;
+      font-weight: normal;
+    }
+
+    .main-1 .inner p {
+      color: #f1f1f1;
+      font-size: 25px;
+      font-weight: normal;
+    }
+
+    .main-1 .inner .btn {
+      display: flex;
+      padding: 30px 0;
+    }
+
+    .main-1 .inner .btn a {
+      display: block;
+      width: 150px;
+      color: #f1f1f1;
+      border: 1px solid #f1f1f1;
+      text-align: center;
+      margin-right: 20px;
+      padding: 10px 0;
+      transition: 0.3s;
+    }
+
+    /*btn hover*/
+    .main-1 .inner .btn a:hover {
+      background-color: rgb(241, 241, 241, 0.5);
+    }
+
+    /*두번째 섹션*/
+    .main-2 {
+      height: 360px;
+      background-color: gold;
+      padding: 100px 0;
+    }
+
+    .main-2 .inner {
+      width: 800px;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+    }
+
+    .main-2 .inner img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    /*세번째섹션*/
+    .main-3 {
+      height: 800px;
+      background-color: #f1f1f1;
+      padding: 100px 0;
+    }
+
+    .main-3 .inner {
+      width: 1000px;
+      margin: auto;
+      height: calc(100% - 200px);
+    }
+
+    .main-3 .inner .title {
+      display: flex;
+    }
+
+    .inner article .plus {
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    .main-3 .inner .title h2 {
+      font-size: 60px;
+      font-family: Times, serif;
+    }
+
+    .main-3 .inner .title p {
+      color: #888;
+    }
+
+    .intro-container {
+      display: flex;
+      padding: 50px 0;
+      gap: 50px;
+      margin: 20px 0;
+    }
+    .intro h4,.intro p{
+      text-align: center;
+    }
+
+    .txt-box {
+      display: flex;
+      gap: 50px;
+    }
+
+    /* 네번째 영역 */
+    .main-4 {
+      height: 910px;
+      padding: 100px 0;
+      background-color: #333;
+    }
+
+    .main-4 .inner {
+      width: 1000px;
+      margin: auto;
+    }
+
+    .main-4 .inner h2 {
+      font-size: 60px;
+      font-family: Times, serif;
+      color: #f1f1f1;
+    }
+
+    .main-4 .inner h2 img {
+      padding-right: 20px;
+    }
+
+    .main-4 .inner p {
+      color: #f1f1f1;
+    }
+
+    .main-4 .content-box {
+      margin-top: 50px;
+      width: 50%;
+      float: left;
+    }
+
+    .main-4 .content-box i {
+      font-size: 30px;
+      padding-right: 20px;
+    }
+
+    .main-4 .content-box>p {
+      padding-top: 10px;
+    }
+
+    .content-box .address {
+      color: #f1f1f1;
+      margin-top: 30px;
+    }
+
+    .content-box .address p {
+      /* padding-top: 20px; */
+      margin-bottom: 20px;
+    }
+
+    .content-box iframe {
+      /* padding: 20px; */
+      /* margin-left: 40px; */
+      margin-bottom: 50px;
+    }
+    .contact-form {
+      width: 50%;
+      float: right;
+ 
+    }
+
+    .contact-form div{
+      float: left;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .contact-form div input {
+      /* width: 100%; */
+      height: 30px;
+      background-color: #f1f1f1;
+      padding: 15px;
+      border: #888;
+    }
+
+    .contact-form textarea {
+      margin-left: 10px;
+      width: 48%;
+      border: #888;
+      padding: 10px;
+      margin-top: 20px;
+      resize: none;
+    }
+    .main-4 button {
+      border: none;
+      width: 120px;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: goldenrod;
+      color: #fff;
+      cursor: pointer;
+    }
+    .main-4 hr{
+      border: 1px solid #f1f1f1;
+      margin: 50px 0;
+    }
+
+    /*footer*/
+    footer {
+      height: 100px;
+      width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .icon {
+      margin-left: 50px;
+    }
+
+    .txt-box span {
+      background-color: rgb(255, 255, 186);
+    }
+
+    /*스크롤탑버튼*/
+    .top {
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
+      position: fixed;
+      bottom: 20px;right: 50px;
+      z-index: 999;
+      display: none;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <i class="fas fa-caret-square-up"></i>
+  </div>
+
+  <div class="container">
+    <!-- 헤더영역 -->
+    <header>
+      <div class="inner">
+        <h2 class="logo"><span style="font-style: normal;">creative</span> plus</h2>
+        <div class="menu">
+          <ul>
+            <li><a href="#" style="color: gold;">메인</a></li>
+            <li><a href="#">인재찾기</a></li>
+            <li><a href="#">일자리찾기</a></li>
+          </ul>
+          <div class="icon">
+            <a href="#"><img src="images/KakaoTalk_20250228_184955898_01.png"></a>
+            <a href="#"><img src="images/KakaoTalk_20250228_184955898_02.png"></a>
+            <a href="#"><img src="images/KakaoTalk_20250228_184955898.png"></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 첫번째 이미지 있는 영역 -->
+    <section class="main-1">
+      <img src="images/main.jpg">
+      <div class="inner">
+        <h2>CREATIVE</h2>
+        <h2>PLUS<img src="images/add.png" alt="" class="plus"></h2>
+        <h3>
+          인재와 기회가<br>
+          당신을 기다립니다!!
+        </h3>
+        <p>크리에이티브 코너와 함께 미래를 만들어보세요!</p>
+
+        <div class="btn">
+          <a href="#">인재찾기</a>
+          <a href="#">일자리 찾기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 두번째 영역 -->
+    <section class="main-2">
+      <div class="inner">
+        <div class="box">
+          <img src="images/icon1.png">
+          <p><b>DESIGNERS</b></p>
+          <p>디자이너</p>
+        </div>
+        <div class="box">
+          <img src="images/icon2.png">
+          <p><b>CONTENTS WRITERS</b></p>
+          <p>콘텐츠 담당</p>
+        </div>
+        <div class="box">
+          <img src="images/icon3.png">
+          <p><b>AD DIRECTORS</b></p>
+          <p>광고제작</p>
+        </div>
+        <div class="box">
+          <img src="images/icon4.png">
+          <p><b>MUSIC PRODUCERS</b></p>
+          <p>음악 프로듀서</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 세번째 영역 -->
+    <section class="main-3">
+      <div class="inner">
+        <article class="title">
+          <img src="images/plus-symbol-button.png" alt="" class="plus">
+          <div class="txt">
+            <h2>ABOUT US 소개</h2>
+            <p>크리에이티브 플러스를 소개합니다!</p>
+          </div>
+        </article>
+        <article class="intro-container">
+          <div class="intro">
+            <img src="images/avatar1.png">
+            <h4>이 름</h4>
+            <p>공동대표</p>
+          </div>
+          <div class="intro">
+            <img src="images/avatar2.png">
+            <h4>이 름</h4>
+            <p>공동대표</p>
+          </div>
+          <div class="intro">
+            <img src="images/avatar3.png">
+            <h4>이 름</h4>
+            <p>컨설팅</p>
+          </div>
+          <div class="intro">
+            <img src="images/avatar4.png">
+            <h4>이 름</h4>
+            <p>컨설팅</p>
+          </div>
+        </article>
+
+        <article class="txt-box">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero eveniet odio mollitia maiores nesciunt
+            reprehenderit eius sed dolore quaerat, magnam, ex amet culpa numquam beatae voluptatum odit nisi explicabo.
+            Omnis.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero eveniet odio mollitia maiores nesciunt
+            reprehenderit eius sed dolore quaerat, magnam, ex amet culpa numquam beatae voluptatum odit nisi explicabo.
+            Omnis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="main-4">
+      <div class="inner">
+        <article class="logo">
+          <h2><img src="images/KakaoTalk_20250304_090759164.png">CONTACT</h2>
+          <p>궁금한 내용은 언제든지 문의하세요!</p>
+        </article>
+
+        <article class="content-box">
+          <p><i class="fa-regular fa-envelope" style="color: #f1f1f1;"></i>abcd@XXX.com</p>
+          <p><i class="fa-solid fa-phone" style="color: #f1f1f1;"></i>031-0000-0000</p>
+          <div class="address">
+            <p>경기도 안산시 단원구 고잔동</p>
+            <p>1-1, 110-240</p>
+
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.3036988932545!2d127.1023568138277!3d37.51166114593146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca50a915f665b%3A0xabeb10cd5efdfce2!2z66Gv642w7JuU65Oc7YOA7JuM!5e0!3m2!1sko!2skr!4v1740812698413!5m2!1sko!2skr"
+              width="450" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </article>
+
+        <form class="contact-form">
+          <p>크리에이티브 플러스와 함께</p>
+          <p>끼와 재능을 펼쳐보세요!</p>
+
+          <div>
+            <input type="text" placeholder="이름">
+            <input type="email" placeholder="이메일">
+            <input type="text" placeholder="제목">
+          </div>
+          <textarea style=" height: 110px;" placeholder="메시지"></textarea>
+        </form>
+        <button type="submit">보내기</button>
+        <hr>
+        <form class="contact-form">
+          <p>크리에이티브 플러스의</p>
+          <p>놀라운 인재들을 만나보세요!</p>
+
+          <div>
+            <input type="text" placeholder="이름">
+            <input type="email" placeholder="이메일">
+            <input type="text" placeholder="제목">
+          </div>
+          <textarea style=" height: 110px;" placeholder="메시지"></textarea>
+        </form>
+        <button type="submit">보내기</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="txt-box">
+        <p>Copyright &copy; 2018 CREATIVE PLUS.</p>
+        <p><span>abcd@XXX.com</span> 경기도 안산시 단원구 고잔동 1-1, 110-240</p>
+      </div>
+      <div class="icon">
+        <a href="#"><img src="images/KakaoTalk_20250228_184955898_02.png"></a>
+        <a href="#"><img src="images/KakaoTalk_20250228_184955898_01.png"></a>
+        <a href="#"><img src="images/KakaoTalk_20250228_184955898.png"></a>
+      </div>
+    </footer>
+  </div>
+
+  
+</body>
+
+</html>

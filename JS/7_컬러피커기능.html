@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컬러 피커</title>
+  <style>
+    body{
+      text-align: center;
+      display: grid;
+      place-items: center; /*정렬해주는 속성*/
+      height: 100vh;
+      background: #000;
+    }
+    div {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 220px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p id="colorText">컬러 코드 검색</p>
+    <input id="colorPicker" type="color">
+  </div>
+
+  <script>
+    //input요소와 p요소를 선택
+    const color = document.querySelector("#colorPicker");
+    const text = document.querySelector("#colorText");
+    // console.log(color)//
+    //p요소에 color의 value값을 할당
+    textContent = `컬러코드 : ${color.value}`;
+
+    //기본적인 이벤트 작성 방법
+    //선택자.addEventListener(이벤트타입, 실행코드);
+
+    //컬러 피커가 변경되면 colorBg를 실행시킴
+    color.addEventListener('input', colorBg);
+
+    //컬러 피커를 조작할 때 일련의 동작
+    function colorBg(){
+      //컬러코드를 표시
+      text.textContent = `컬러코드 : ${color.value}`;
+
+      //선택한 색을 배경색으로 설정
+      document.body.style.backgroundColor = color.value;
+    } 
+  </script>
+</body>
+</html>

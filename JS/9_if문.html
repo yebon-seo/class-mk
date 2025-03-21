@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if조건문</title>
+  <script>
+    //변수 x가 10보다 작을 때 변수 x를 출력하는 조건식을 완성하라
+    const x = prompt("정수 입력");
+
+    if(x < 10) console.log(x)
+
+    //변수 x가 10보다 크고 20보가 작을 때 변수 x를 출력
+    if(x > 10 && x < 20) console.log(x)
+
+    //삼항 연산자
+    //대부분의 if else문은 삼항조건 연산자로 바꿔 쓸 수 있다.
+    // y = 2;
+    let result;
+    if(y % 2){ //홀수일 경우
+      result = "홀수";
+      console.log(result)
+    }else{
+      result = "짝수";
+      console.log(result)
+    }
+
+    // //삼항 연산자 활용 (조건식 ? 실행문1 : 실행문2) 두줄이상이면 if문 쓰세여
+    result = x % 2 ? '홀수' : '짝수';
+    console.log(result)
+
+    let num = Number(x) //숫자타입으로 변경
+    //경우의 수가 세가지일 경우
+    let kind = num ? (num > 0 ? '양수' : "음수"): "영";
+    console.log(kind);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

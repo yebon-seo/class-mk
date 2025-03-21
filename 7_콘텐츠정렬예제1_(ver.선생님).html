@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃 연습</title>
+  <style>
+    * {margin: 0;padding: 0;}
+    .container {
+      width: 1080px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .box {
+      width: 520px;
+    }
+
+    article {
+      display: flex;
+      justify-content: space-between;
+      margin:20px 0;
+    }
+
+    article img {
+      width: 160px;
+      height: 160px;
+    }
+
+    .txt {
+      width: 340px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .txt > h2{
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <article>
+        <img src="https://picsum.photos/160/160">
+        <div class="txt">
+          <h2>DESCRIPTION</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
+          <p>Temporibus optio consequatur dicta, ad ducimus aliquid molestias voluptate quam soluta est quidem vero,</p> 
+          <p>assumenda vel? Ea iste accusamus</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/160/160">
+        <div class="txt">
+          <h2>DESCRIPTION</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
+          <p>Temporibus optio consequatur dicta, ad ducimus aliquid molestias voluptate quam soluta est quidem vero,</p> 
+          <p>assumenda vel? Ea iste accusamus</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/160/160">
+        <div class="txt">
+          <h2>DESCRIPTION</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
+          <p>Temporibus optio consequatur dicta, ad ducimus aliquid molestias voluptate quam soluta est quidem vero,</p> 
+          <p>assumenda vel? Ea iste accusamus</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="box">
+      <img src="images/images/dummy.avif" alt="" width="520" height="520">
+    </div>
+  </div>
+</body>
+</html>

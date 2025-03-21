@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>border animation</title>
+  <style>
+    body {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    button {
+      background: none;
+      border: none;
+      box-sizing: border-box;
+      padding: 1em 4em;/*부모의 100% /rem <root>은 html 기준으로 배수*/
+      /*inset(요소 안쪽으로 그림자 적용) x축 y축 blur 확장값 색상*/
+      box-shadow: inset 0 0 0 2px orange;
+      color: orange;
+      font-weight: bold;
+      position: relative;/*안쪽에 들어오는 가상요소를 정렬하기 위해*/
+      transition: color 0.25s; /*color속성이 변경되면 0.25초 동안 변경*/
+    }
+
+    button::before,
+    button::after {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      border: 2px solid transparent; /*width랑 height 가 0이어도 점으로 나오기 때문에 transparent*/
+      width: 0; height: 0;
+    }
+    button::before { /*시작 기준점 잡기*/
+      top:0;left: 0;
+    }
+    button::after { /*시작 기준점 잡기*/
+      bottom: 0; right: 0;
+    }
+    /*hover 시*/
+    button:hover {color: cornflowerblue;}
+
+    button:hover::before,
+    button:hover::after {
+      width: 100%;
+      height: 100%;
+    }
+    button:hover::before {
+      border-top-color: cornflowerblue;
+      border-right-color: cornflowerblue;
+      transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+    }
+    button:hover::after {
+      border-bottom-color: cornflowerblue;
+      border-left-color: cornflowerblue;
+      transition: border-color 0s ease-out 0.5s ,width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+    }
+    
+
+  </style>
+</head>
+<body>
+  <button type="button">Draw</button>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색창만들기</title>
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous">
+  </script>
+  <style>
+    *{margin: 0; padding: 0;box-sizing: border-box;}
+    ul,ul {list-style: none;}
+    a{text-decoration: none;}
+
+    nav {
+      min-width: 1000px;
+      border-bottom: 1px solid #d9d9d9;
+    }
+    nav .wrap {
+      width: 1000px;
+      margin: auto;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      background-color: #eeeeee;
+    }
+    nav .wrap #gnb {
+      display: flex;
+      gap: 50px;
+    }
+    #gnb a{
+      color: #333;
+    }
+    .search {
+      display: flex; /*여백제거용*/
+      gap: 5px;
+      align-items: center;
+    }
+    .search input {
+      border: none;
+      outline: none;
+      background-color: rgb(61, 61, 61);
+      padding: 10px 20px;
+      border-radius: 30px;
+      width: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition:  width 0.3s ease-in-out;
+    }
+    .search-icon {
+      padding: 5px;
+      cursor: pointer;
+      font-size: 20px;
+      color: rgb(0, 10, 7);
+    }
+    .search-input.on {
+      width: 200px;
+      opacity: 1;
+      visibility: visible;
+    }
+    input:focus {
+    border: 2px solid rgb(224, 224, 224); /* 포커스 시 파란 테두리 */
+    background-color: rgb(207, 173, 173); /* 배경색 변경 */
+  }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <ul id="gnb">
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+      </ul>
+      <div class="search">
+        <input type="text" class="search-input" placeholder="검색어를 입력하세요">
+        <span class="search-icon"><i class="fas fa-search"></i></span>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // search-icon을 선택 후 클릭 이벤트 생성
+    // const icon = document.querySelector(".search-icon")
+    // 한번만 쓰고 말때는
+    document.querySelector(".search-icon").addEventListener("click", () => {
+      const input = document.querySelector(".search-input");
+      input.classList.toggle("on")
+    
+    // search-input을 선택 후 온 클래스 추가 또는 제거(toggle?)
+    // const input = document.querySelector(".search-input")
+    //   icon.addEventListener("click", () => {
+    //     input.classList.toggle("on")
+    //   })
+    
+    //클래스 존재여부 확인 = 선택자.classList.contains("클래스명")★★★★★★
+    //search-input 에 on클래스가 존재하면 포커싱(.focus())
+    if(input.classList.contains("on")){
+      input.focus();
+    }
+  })
+  </script>
+</body>
+</html>

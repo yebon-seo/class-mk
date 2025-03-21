@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스위치문</title>
+  <script>
+    let val = prompt("a,b,c중에 알파벳 하나만 입력하세요","")
+    let answer = ""; //나중에 값을 할당할 변수
+
+    switch(val){//스위치 문으로 val값을 전달
+      case "a" :
+        answer = "apple" //입력값이 a면 answer에 apple를 할당
+        break;
+      case "b" :
+        answer = "banana"
+        break;
+      case "c" :
+        answer = "chreey"
+        break;
+      default :
+        answer = "stuff"
+        break;
+    }
+    console.log(answer)
+
+    //여러개의 조건이 같은 값을 공유하는 경우
+    let value = parseInt(prompt("1~9사이의 숫자 하나만 입력하세요",""))
+    //parseInt(문자열) = 문자열을 숫자로 반환(정수만)
+    switch(value){
+      case 1:
+      case 2:
+      case 3:
+        answer = "low"
+        break;
+      case 4:
+      case 5:
+      case 6:
+        answer = "mid"
+        break;
+      case 7:
+      case 8:
+      case 9:
+        answer = "high";
+        break;
+      default :
+        answer = "1~9사이 숫자만 입력하세요"
+        break;
+    }
+    console.log(answer)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

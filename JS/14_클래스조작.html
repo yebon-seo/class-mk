@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스조작</title>
+  <style>
+    .box {  width: 100px; height: 100px;  background-color: antiquewhite;  }
+    .red { color: red; }
+    .blue { color: blue; }
+  </style>
+</head>
+<body>
+  <div class="box red">Hello World</div>
+  <script>
+    const $box = document.querySelector(".box");
+
+    //.box요소의 class attribute 값을 취득
+    console.log($box.className)
+
+    //.box요소의 class attribute 값중에서 red만 blue로 변경
+    $box.className = $box.className.replace("red","blue")
+
+    //.box요소의 class attribute 정보를 담은 DOMTokenList 객체를 취득
+    console.log($box.classList);
+
+    //클래스 이름 블루만 레드로 변경
+    $box.classList.replace("blue","red")
+
+    //클래스 추가
+    $box.classList.add("foo","bar","baz");
+    //클래스 제거
+    $box.classList.remove("foo","bar");
+
+    //인수로 전달한 index에 해당하는 클래스를 반환(0 = 첫번째 클래스 1=두번째)
+    console.log($box.classList.item(0)) //box
+    console.log($box.classList.item(1)) //red
+
+    //인수로 전달한 문자열과 일치하는 클래스가 포함되어 있으면 true를 없으면 false
+    console.log($box.classList.contains("box")) //true
+    console.log($box.classList.contains("fff")) //false
+
+    //인수로 전달한 문자열과 일치하는 클래스가 존재하면 제거하고.존재하지 않으면 추가한다.
+    $box.classList.toggle("foo");
+    $box.classList.toggle("foo");
+  </script>
+</body>
+</html>

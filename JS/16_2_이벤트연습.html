@@ -1,0 +1,133 @@
+​
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>vanilla</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    body {
+      font: 12px/1.5 "굴림", Gulim;
+      margin: 10px;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    h2+p+p {
+      overflow: hidden;
+      max-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <h1>제이쿼리 Effect to 바닐라스크립트</h1>
+    <p>제이쿼리에서는 화면전환, 슬라이드 다운과 업 효과 등<br />다양한 효과 메서드를 제공하며, 바닐라JS로 구현이 가능합니다.</p>
+    <h2>slideDown/up 효과</h2>
+    <p> <button id="btn1">slideUp</button> <button id="btn2">slideDown</button> <button id="btn3">slideToggle</button>
+    </p>
+    <p>slideUp은 선택 요소를 위로 미끄러지듯 말아 올리면서 숨깁니다.<br />반면, slideDown은 선택 요소를 아래로 미끄러지듯 말아 내리면서 노출시킵니다.</p>
+    <h2>fadeIn/fadOut</h2>
+    <p> <button id="btn4">fadeOut</button> <button id="btn5">fadeIn</button> <button id="btn6">fadeToggle</button> </p>
+    <p>fadeOut은 선택 요소를 천천히 사라지게 만듭니다.<br />fadeIn은 선택 요소를 천천히 나타나게 합니다.</p>
+    <h2>fadeTo 효과</h2>
+    <p> <button id="btn7">fadeTo(0.3)</button> <button id="btn8">fadeTo(1)</button> </p>
+    <p id="box3">fadeTo는 선택 요소를 원하는 만큼만 <br />보이거나 숨길 수 있습니다.</p>
+  </div>
+
+  <script>
+    //슬라이드업
+    document.querySelector("#btn1").addEventListener("click",function(){
+      //함수안의 this = 이벤트가 발생된 요소 (#btn1)
+      this.parentNode.nextElementSibling.style.transition = "max-height .25s";
+      //이벤트가 발생된 #btn1의 부모요소 다음형제요소의 트랜지션 속성을 적용
+      this.parentNode.nextElementSibling.style.height = "0px";
+    })
+    //슬라이드다운
+    document.querySelector("#btn2").addEventListener("click",function(){
+      this.parentNode.nextElementSibling.style.transition = "max-height .25s";
+      this.parentNode.nextElementSibling.style.height = "40px";
+    })
+    //슬라이드 토글
+    document.querySelector("#btn3").addEventListener("click",function(){
+      const parentNext = this.parentNode.nextElementSibling;
+      parentNext.style.transition = "max-height .25s";
+      console.log(getComputedStyle(parentNext).maxHeight)
+      //getComputedStyle(요소).읽어올 css속성이름 = 최종 결과의 css값이 반환된다.
+      if(getComputedStyle(parentNext).maxHeight !== "0px"){
+      parentNext.style.maxHeight = "0px";
+    }else{
+      parentNext.style.maxHeight = "40px";
+    }
+    })
+
+    //fadeOut이벤트
+    document.querySelector("#btn4").addEventListener("click",function(){
+      const parentNext = this.parentNode.nextElementSibling;
+      parentNext.style.transition = 'opacity 1s';
+      parentNext.style.opacity = 0;
+      // setTimeout(실행할 함수,지연시간)
+      setTimeout(function(){
+        parentNext.style.display = "none";
+      },1000)
+     
+    })
+    //fadeIn이벤트
+    document.querySelector("#btn5").addEventListener("click",function(){
+      const parentNext = this.parentNode.nextElementSibling;
+      parentNext.style.display = "block";
+      
+      // setTimeout(실행할 함수,지연시간)
+      setTimeout(function(){
+        parentNext.style.transition = "opacity .75s";
+        parentNext.style.opacity = 1;
+      },1);//0.001초후에 함수 호출
+     
+    })
+
+    //fadeToggle이벤트
+    document.querySelector("#btn6").addEventListener("click",function(){
+      const parentNext = this.parentNode.nextElementSibling;
+      parentNext.style.transition = 'opacity .5s';
+
+      if(getComputedStyle(parentNext).opacity !== '0'){ //opacity가0이 아니면
+        parentNext.style.opacity = 0;//opacity를 0으로 변경
+        setTimeout(function(){
+          parentNext.style.display = "none"
+        },500); //0.5초 후에 함수를 호출
+      }else{
+        parentNext.style.display = "block";
+        setTimeout(function(){
+        parentNext.style.opacity = 1;
+      },1)
+    }     
+    })
+
+    //fadeTo
+    document.querySelector("#btn7").addEventListener("click",function(){
+      this.parentNode.nextElementSibling.style.transition = "opacity .75s";
+      this.parentNode.nextElementSibling.style.opacity = "0.3";
+      
+    })
+    document.querySelector("#btn8").addEventListener("click",function(){
+      this.parentNode.nextElementSibling.style.transition = "opacity .75s";
+      this.parentNode.nextElementSibling.style.opacity = "1";
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiper.js 이미지 슬라이드</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <style>
+    .swiper {
+      width: 400px;
+      height: 250px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+      /* 🔴 원하는 색상 적용 */
+    }
+
+    .swiper-pagination-bullet {
+      /* background-color: gray; */
+      background-color: #000;
+      width: 12px;
+      height: 12px;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: blue; /* 🔵 활성화된 도트 색상 */
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Swiper 슬라이드 -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/img1.jpg" alt="1"></div>
+      <div class="swiper-slide"><img src="images/img2.jpg" alt="2"></div>
+      <div class="swiper-slide"><img src="images/img3.jpg" alt="3"></div>
+    </div>
+
+    <!-- 네비게이션 버튼 -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- 페이지네이션 (도트) -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    let swiper = new Swiper(".mySwiper", {
+      loop: true,  // ✅ 무한 루프
+      autoplay: {
+        delay: 3000,  // ✅ 자동 슬라이드 (3초)
+        disableOnInteraction: false, // 유저가 조작해도 다시 자동 진행
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,  // ✅ 도트 클릭 가능
+      },
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드교체</title>
+</head>
+<body>
+  <h1>요소 노드의 교체</h1>
+  <div id="parent">
+    <p id="first">첫번째 요소입니다.</p>
+    <p id="item">두 번째 요소입니다.</p>
+    <p id="third">세 번째 요소입니다.</p>
+  </div>
+  <button onclick="changeNode()">요소 노드 교체</button>
+  <button onclick="remove()">요소 노드 삭제</button>
+
+  <script>
+    const parent = document.querySelector("#parent");
+    const first = document.querySelector("#first");
+    const third = document.querySelector("#third");
+    function changeNode(){
+      //first요소를 삭제하고 , 그대신 third 요소를 삽입함
+      parent.replaceChild(third, first)
+    }
+    function remove(){
+      parent.removeChild(parent.lastElementChild)
+    }
+  </script>
+</body>
+</html>

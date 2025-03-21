@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨텐츠정렬 예제1</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* main */
+    .container {
+      width: 1180px;
+      height: 480px;
+      margin: auto;
+    }
+
+    .main-con {
+      width: 360px;
+      height: 480px;
+      position: relative;
+      float: left;
+    }
+
+    .main-con>img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* txt */
+    .main-con>.txt {
+      position: absolute;
+      top: 0;
+      padding: 30px;
+      color: white;
+    }
+
+    .main-con>.txt>h3 {
+      font-size: 16px;
+    }
+
+    .main-con>.txt>p {
+      border-bottom: 1px solid #fff;
+      display: block;
+      width: 20px;
+      margin: 20px 0;
+    }
+
+    .main-con>.txt>ul {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .main-con>.txt li {
+      margin-bottom: 5px;
+    }
+
+    /* right-top */
+    .right-top {
+      width: 820px;
+      height: 240px;
+      float: left;
+    }
+
+    .right-top > .intro {
+      width: 560px;
+      height: 240px;
+      position: relative;
+      float: left;
+    }
+
+    .right-top > .intro > .txt{
+      position: absolute;
+      top: 0;
+      padding: 30px;
+      font-weight: bold;
+    }
+
+    .right-top > .intro > img{
+      width: 100%;
+      height: 100%;
+    }
+
+    .right-top > .intro > .txt > p{
+      font-size: 13px;
+      color: #fff; 
+      margin-top: 10px;
+    }
+
+    .right-top > .intro > .txt > h1{
+      font-size: 20px;
+      color: #003a91; 
+      margin-top: 20px;
+    }
+
+    .underline {
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1px solid;
+      padding-bottom: 3px;
+    }
+
+    .right-top > .intro-txt {
+      width: 260px;
+      height: 240px;
+      float: right;
+      padding: 50px;
+    }
+
+    .right-top > .intro-txt > h4 {
+      font-size: 16px;
+    }
+
+    .right-top > .intro-txt > ul {
+      font-size: 12px;
+    }
+
+    .right-top > .intro-txt li {
+      margin-bottom: 5px;
+    }
+
+    .right-top > .intro-txt > p{
+      display: block;
+      width: 20px;
+      border-top: 1px solid rgb(83, 152, 255);
+      margin: 20px 0;
+    }
+
+    .right-bottom {
+      width: 820px;
+      height: 240px;
+      float: left;
+    }
+
+    .right-bottom > .intro-txt {
+      width: 260px;
+      height: 240px;
+      float: left;
+      padding: 40px;
+    }
+
+    .right-bottom > .intro-txt >h4{
+      font-size: 16px;
+      color: #333;
+    }
+
+    .right-bottom > .intro-txt >ul{
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .right-bottom > .intro-txt li{
+      margin-bottom: 2px;
+    }
+
+    .right-bottom > .intro-txt >p{
+      display: block;
+      width: 20px;
+      border-top: 1px solid rgb(83, 152, 255);
+      margin: 20px 0;
+    }
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main-con">
+      <img src="images/layout01.png">
+      <div class="txt">
+        <h3>제품기획º개발º생산</h3>
+        <p></p>
+        <ul>
+          <li>UV 소득</li>
+          <li>CREAN</li>
+          <li>소형가전</li>
+          <li>BEAUTY</li>
+        </ul>
+      </div>
+    </div>
+
+    <article>
+      <div class="right-top">
+        <div class="intro">
+          <img src="images/layout02.png">
+          <div class="txt">
+            <p>국내를 넘어</p>
+            <p>세계로 도약하는 기업</p>
+            <h1><span class="underline">G</span>LOBAL <span style="color: rgb(240, 110, 96);"><span class="underline">N</span>0VEL</span></h1>
+          </div>
+        </div>
+        <div class="intro-txt">
+          <h4>Research & Devlope</h4>
+          <p></p>
+          <ul>
+            <li>센서개발</li>
+            <li>UV LED 적용 기술</li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-bottom">
+        <div class="intro-txt">
+          <h4>ODM / OEM</h4>
+          <p></p>
+          <ul>
+            <li>제품기획</li>
+            <li>금형설계</li>
+            <li>디자인/설계</li>
+            <li>시제품제작</li>
+            <li>회로 설계</li>
+            <li>양산품 제작</li>
+          </ul>
+        </div>
+        <div class="intro">
+          <img src="images/layout03.png">
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+
+</html>

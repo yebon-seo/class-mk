@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어트리뷰트노드</title>
+</head>
+<body>
+  <input id="user" type="text" value="John">
+  <p id ="text">이 단락에 새로운 속성을 추가 할 것 입니다.</p>
+  <button id="btn">속성 노드 생성!</button>
+  <script>
+    //요소 노드의 attribute 프로퍼티는 요소노드의 모든 어트리뷰트 노드의 참조가 담긴 NameNodeMap 객체를 반환한다
+    const {attributes} = document.getElementById("user")
+    console.log(attributes)
+    
+    //어트리뷰트 값 취득
+    console.log(attributes.id.value) //user
+    const user = document.getElementById("user");
+    console.log(user.type)
+
+    //어트리뷰트 값 읽어오기 = input.Value
+    const inputValue = user.getAttribute("value")
+    console.log(inputValue) //John
+
+    //어트리뷰트 값 설정하기 =setAttribute("프로퍼티이름", "설정할 값")
+    //설정된거 다시 바꾸고 싶을땐 이렇게 하면 됑
+    user.setAttribute("value", "foo"); // = user.value = "foo"
+
+
+    //hasAttribute메서드로 어트리뷰트 존재 확인하고 removeAttribute로 삭제 할 수 있다.
+    if(user.hasAttribute('value')){ // value 속성값이 있으면 true, 없으면 false
+      //value 어트리뷰트 삭제
+      user.removeAttribute("value") // = user.value = "";
+      }
+    console.log(user.hasAttribute("value")) //false
+
+    //속성 노드 생성 = document.createAttribute()
+    const text = document.querySelector("#text");
+    const btn = document.querySelector("#btn")
+    btn.addEventListener("click",() => {
+      const newAttribute = document.createAttribute("style");
+      //style속성 노드에 값을 할당
+      //text.style.color = "red" 아래꺼 대신 이렇게 써도됑~~!!!!!!!아래 어렵쨔냐
+      newAttribute.value = "color:red"
+      //text에 newAttributeNode를 추가
+      text.setAttributeNode(newAttribute)
+    })
+  </script>
+</body>
+</html>

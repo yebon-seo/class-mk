@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커스텀 체크박스</title>
+  <style>
+    .container {
+      /*label 인라인 요소임*/
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      font-size: 22px;
+      user-select: none;
+    }
+
+    /*기본 체크박스를 숨겨주기*/
+    .container input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    /*사용자 정의 체크박스 만들기*/
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background-color: #eee;
+    }
+
+    .container:hover .checkmark {
+      background-color: #ccc;
+    }
+
+    /*체크박스가 체크 됬을때*/
+    .container input:checked+.checkmark {
+      background-color: #2196f3;
+    }
+
+    /*확인표시 만들기(체크되지 않으면 숨김*/
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid #fff;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    /*선택시 체크 표시*/
+    .container input:checked+.checkmark::after {
+      display: block;
+    }
+
+    /* 라디오 버튼 */
+    .circle {
+      border-radius: 50%;
+    }
+
+    .container .circle::after {
+      top: calc(50% - 5px);
+      /*계산기 :height의 절반값을 넣어야 함*/
+      left: calc(50% - 5px);
+      /*width의 절반값을 넣어야 함*/
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body> <!--input type에는 name를 꼭 작성해줘야 정보가 넘어감-->
+  <label class="container">
+    One
+    <input type="checkbox" checked>
+    <span class="checkmark"></span>
+  </label>
+  <label class="container">
+    Two
+    <input type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+  <label class="container">
+    Three
+    <input type="radio" name="ra"> <!--같은 이름으로 적어주면 하나로 묶임-->
+    <span class="checkmark circle"></span>
+  </label>
+  <label class="container">
+    Four
+    <input type="radio" name="ra"> <!--같은 이름으로 적어주면 하나로 묶임-->
+    <span class="checkmark circle"></span>
+  </label>
+</body>
+
+</html>

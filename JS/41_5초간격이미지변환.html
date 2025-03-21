@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5초간격이미지변환</title>
+  <style>
+    #pic {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 2px black;
+    }
+  </style>
+</head>
+<body>
+  
+  <img src="images/pic1.jpg" alt="이미지" id="pic">
+
+  <script>
+    const pic = document.querySelector("#pic");
+
+    //pic요소의 src속성값의 뒤에서 5번째 1글자를 변수 sNum에서 저장
+    let sNum = pic.getAttribute("src").substr(-5, 1) // 뒤에서부터 셀때는 -1부터 시작 앞에서는 0번 부터
+    console.log(sNum)
+
+    //1초에 한번씩 함수를 반복호출
+    setInterval(function(){ //실행할 코드
+      //pic요소의 src속성의 이미지 경로를 변경하여 이미지를 변환
+      if(sNum >= 3) sNum = 0 //증감식이 다음에 나오니까 0으로 해줘야 1더해서 첫번째 사진이 보여짐
+      sNum++ //이미지 숫자로 저장하면 하나씩 증가해야 바뀌니까
+
+      //순서가 중요 이렇게 해도 됌
+      //sNum++
+      //if(sNum > 3) sNum = 1
+      pic.setAttribute("src", `images/pic${sNum}.jpg`)
+    },2000)
+
+
+    //substr = (몇번째, 몇개를 가져올지 갯수)★★★★
+  </script>
+</body>
+</html>

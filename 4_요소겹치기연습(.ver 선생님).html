@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요소 겹치기 레이아웃 연습</title>
+  <!-- /* 스타일 초기화 */ -->
+  <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
+  <style>
+    .container {
+      outline: 1px solid red;
+      width: 1060px;
+      margin:auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .box {
+      width: 250px;
+      position: relative;
+      overflow: hidden; /*박스 밖으로 넘어가는 컨텐츠를 가려줌*/
+    }
+
+    .box > img {
+      display: block; /*이미지가 인라인요소로 아래에 여백이 4px있어서 없애려고 블럭 */
+    }
+
+    .box > .txt {
+      position: absolute;
+      inset: 0; /*top: 0;right: 0;bottom: 0; left: 0;*/
+      color: #fff;
+      background-color: rgba(160, 160, 160, 0.6);
+      padding: 40px 20px;
+      /* display: none; */
+      opacity: 0;
+      transform: scale(0) rotate(-720deg);
+      transition: all 0.5s; /*.5s써도 all 0.5s와 같은 효과*/
+    }
+
+    .box:hover > .txt {
+      /* display: block; */
+      transform: scale(1);
+      opacity: 1;
+    }
+    /*두번째 박스만 위로 올라가는 효과 적용*/
+    .box:nth-child(2) > .txt {
+      transform: translateY(100%);
+    }
+    .box:nth-child(2):hover > .txt {
+      transform: translateY(0);
+    }
+
+    .txt > h2 {font-size: 24px;}
+
+    .txt > p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .txt > .icon > a {
+      margin-right: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <img src="images/images/animal1.jpg" alt="animal1">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eius nostrum impedit</p>
+        <div class="icon">
+          <a href="#"><img src="images/icon_w/facebook.png" alt="facebook"></a>
+          <a href="#"><img src="images/icon_w/instagram.png" alt="instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/images/animal2.jpg" alt="animal2">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eius nostrum impedit</p>
+        <div class="icon">
+          <a href="#"><img src="images/icon_w/facebook.png" alt="facebook"></a>
+          <a href="#"><img src="images/icon_w/instagram.png" alt="instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/images/animal3.jpg" alt="animal3">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eius nostrum impedit</p>
+        <div class="icon">
+          <a href="#"><img src="images/icon_w/facebook.png" alt="facebook"></a>
+          <a href="#"><img src="images/icon_w/instagram.png" alt="instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/images/animal4.jpg" alt="animal4">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eius nostrum impedit</p>
+        <div class="icon">
+          <a href="#"><img src="images/icon_w/facebook.png" alt="facebook"></a>
+          <a href="#"><img src="images/icon_w/instagram.png" alt="instagram"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

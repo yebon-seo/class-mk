@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네비게이션 연습</title>
+</head>
+<style>
+  /* 노말라이즈 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* nav */
+  nav {
+    width: 100%
+  }
+
+  .top-menu, .bottom-menu {
+    min-width: 1200px;
+  }
+
+  .container {
+    width: 1200px;
+    margin: auto; /*가운데정렬*/
+  }
+
+  .top-menu {
+    background-color: #666;
+  }
+
+  .login {
+    display: flex;
+    justify-content: flex-end;
+    gap:40px; /*아이템 사이의 여백*/
+    margin-right: 40px;
+    color: white;
+    height: 40px;
+    align-items: center;/*교차축을 가운데 정렬*/
+    font-size: 16px;
+  }
+
+  .bottom-menu {
+    background-color: gold;
+  }
+
+  .bottom-menu > .container {
+    display: flex;
+    padding: 0 40px;
+    height: 80px;
+    justify-content: space-between; /*아이템을 같은 간격으로 정렬*/
+    align-items: center;
+    /* color: white; */
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .gnb {
+    display: flex;
+    gap: 45px;
+  }
+
+
+
+</style>
+
+<body>
+
+  <nav>
+    <div class="top-menu">
+      <div class="container">
+        <ul class="login">
+          <li><a href=#>login</a></li>
+          <li><a href=#>join us</a></li>
+          <li><a href=#>member</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bottom-menu">
+      <div class="container">
+        <div class="logo"><a href="#">SHAMMAH</a></div>
+        <ul class="gnb">
+          <li><a href=#>ABOUT</a></li>
+          <li><a href=#>NEWS</a></li>
+          <li><a href=#>PORTFOLIO</a></li>
+          <li><a href=#>BOARD</a></li>
+          <li><a href=#>ALBUM</a></li>
+          <li><a href=#>CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+</body>
+
+</html>

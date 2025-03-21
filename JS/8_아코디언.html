@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언</title>
+</head>
+<style>
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: left;
+    transition: .4s;
+  }
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+
+  /*add icon*/
+  .accordion::after{
+    content: '\02795'; /*plus아이콘*/
+    font-size: 13px;
+    color: #777;
+    float: right;
+  }
+  .active::after {
+    content: "\2796";/*마이너스 아이콘*/
+  }
+  .panel {
+    padding: 0 18px;
+    background-color: #fff;
+    overflow: hidden;
+    max-height: 0; /*이걸 안주면 보이지롱*/
+    transition: max-height 0.2s ease-out;
+  }
+  h1 {font-size: 50px;}
+
+</style>
+<body>
+  <section>
+    <h1>메롱메올</h1>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.</p>
+    </div>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.</p>
+    </div>
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.</p>
+    </div>
+  </section>
+
+  <script>
+    //선택자
+    const acc = document.querySelectorAll(".accordion");
+    for(let i = 0; i < acc.length; i++){ //아코디언 버튼의 갯수만큼 반복
+      acc[i].addEventListener("click", function(){
+        //클릭한 버튼요소에 active 클래스를 추가 또는 제거
+        acc[i].classList.toggle("active");
+        //클릭한 버튼의 다음 형제 요소인 패널을 선택
+        const panel = acc[i].nextElementSibling;
+        //패널의 display가 block면 none으로 none면 block로 변경
+
+
+      // 다른 패널이 열린 상태라면 닫기
+    for (let j = 0; j < acc.length; j++) {
+      // 클릭한 패널을 제외한 다른 패널을 닫기
+      if (i !== j) {
+        const otherPanel = acc[j].nextElementSibling;
+        if (otherPanel.style.maxHeight) {
+          otherPanel.style.maxHeight = null;  // 다른 열린 패널을 닫기
+          acc[j].classList.remove("active");  // active 클래스도 제거
+        }
+      }
+    }
+
+
+        /*패널의 maxHeight 값이 0이 아니면 실행*/
+        if(panel.style.maxHeight !== ""){ 
+          panel.style.maxHeight = null; /* maxHeight값을 null로 설정하여 패널을 접어줍니다.0으로 작성하면 결과값이 0px로 반환되기 때문에 null로 적용*/
+        }else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

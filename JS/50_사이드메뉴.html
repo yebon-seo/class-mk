@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사이드메뉴</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin: 0; padding: 0;box-sizing: border-box;}
+    ul,li{list-style: none;}
+    a{text-decoration: none;}
+    body{
+      font-family: 'Courier New', Courier, monospace;
+      color: #f1f1f1;
+      line-height: 1.4;
+      font-size: 15px;
+    }
+    img{display: block;}
+
+    #main{
+      width: 100%;
+      height: 100vh;
+      background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/bg2.jpg) center/cover;
+      position: relative;
+    }
+    #main > .txt {
+      position: absolute;
+      left: 50%; top: 40%;
+      transform: translate(-50%,-60%);
+      text-align: center;
+    }
+    #main > .txt > h1 {
+      color: #f1f1f1;
+      font-size: 36px;
+    }
+    #main > .txt > p {
+      color: #ccc;
+      font-size: 18px;
+      margin: 40px 0;
+    }
+    #main > .txt > a {
+      display: inline-block;
+      padding: 6px 32px;
+      border: 1px solid #ffb20b;
+      color: #ffb20b;
+      transition: 0.3s;
+    }
+    #main > .txt > a:hover {
+      background-color: #5c58578a;
+    }
+    .dot {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+    }
+    .dot li {
+      width: 15px;
+      height: 15px;
+      border: 1px solid #f1f1f1;
+      border-radius: 50%;
+      margin: 10px 0;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .dot li:hover {
+      opacity: 1;
+    }
+    .dot li.on {
+      background-color: #f1f1f1;
+    }
+    #sidebar {
+      position: fixed;
+      width: 360px;
+      height: 100%;
+      z-index: 10;
+      background-color: #11111198;
+      padding: 0 90px;
+      left: -360px;
+      transition: all 0.5s;
+    }
+    .close{
+      position: absolute;
+      top: 10px;
+      right: -55px;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+    #sidebar.on .close{
+      right: 20px; /*on클래스 추가되면 close 버튼이 사이드바 안으로 이동*/
+    }
+    /*sidebar.on 브라우저 안쪽으로 이동*/
+    #sidebar.on {
+      left: 0;
+    }
+
+    .bar1, .bar2, .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #f1f1f1;
+      margin: 6px 0;
+      border-radius: 20px;
+      transition: all 0.5s;
+    }
+    #sidebar.on .bar1{
+      transform: rotate(-45deg) translate(-9px, 7px);
+    }
+    #sidebar.on .bar2{
+      opacity: 0;
+    }
+    #sidebar.on .bar3{
+      transform: rotate(45deg) translate(-8px, -7px);
+    }
+    
+    #gnb{
+      margin-top: 100px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #fff;
+    }
+    #gnb a {
+      color: #fff;
+      margin-top: 40px;
+      display: block;
+    }
+    #sidebar p {
+      margin: 20px 0;
+      font-size: 13px;
+    }
+    #sidebar .user a {
+      display: inline-block;
+      color: #fff;
+      border: 1px solid #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      padding: 5px 0;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 사이드바 -->
+   <div id="sidebar">
+    <div class="close">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <ul id="gnb">
+      <li><a href="#">about</a></li>
+      <li><a href="#">news</a></li>
+      <li><a href="#">portfolio</a></li>
+      <li><a href="#">board</a></li>
+      <li><a href="#">album</a></li>
+      <li><a href="#">contact</a></li>
+    </ul>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, vel ipsum, 
+    </p>
+    <div class="user">
+      <!-- <a href="#"><i class="fa-solid fa-bars"></i></a> -->
+      <a href="#"><i class="fa-solid fa-user-large"></i></a>
+      <a href="#"><i class="fa-solid fa-user-large"></i></a>
+      <a href="#"><i class="fa-solid fa-user-large"></i></a>
+    </div>
+   </div>
+  <section id="main">
+    <div class="txt">
+      <h1>LOGO</h1>
+      <p>Lorem ipsum dolor sit, amet elit.<br>
+        Facere placeat tempora obcaecati ab
+      </p>
+      <a href="#">button</a>
+    </div>
+    <ul class="dot">
+      <li class="on"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </section>
+ <script>
+  const closeBtn = document.querySelector(".close");
+  const sideBar = document.querySelector("#sidebar");
+  closeBtn.addEventListener("click",() => {
+    sideBar.classList.toggle("on")
+  })
+ </script>
+</body>
+</html>

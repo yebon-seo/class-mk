@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용자입력폼</title>
+  <style>
+    /*1 onfocus, onblur 이벤트*/
+    label.title {
+      display: inline-block;
+      width: 100px;
+    }
+
+    input.login {
+      width: 200px;
+      padding: 5px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    /*2 oninput, onsearch 이벤트*/
+    input[type="search"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin: 5px 0;
+      border: 1px solid #aaa;
+      box-sizing: border-box;
+    }
+
+    /*3 onchange, onselect 이벤트*/
+    input[type="radio"]:checked+label {
+      color: red;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #aaa;
+      box-sizing: border-box;
+      font-size: larger;
+    }
+
+    select {
+      padding: 5px;
+    }
+
+    /*4 onreset, onsubmit 이벤트*/
+    label.title2 {
+      display: inline-block;
+      width: 100px;
+    }
+
+    input.login2 {
+      width: 200px;
+      padding: 5px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    input.login2:focus {
+      background-color: yellow;
+    }
+
+    .btns {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!--1 onfocus, onblur 이벤트-->
+  <fieldset>
+    <legend>onfocus, onblur</legend>
+    <label class="title">아이디</label>
+    <input type="text" class="login" placeholder="아이디"> <br>
+    <label class="title">비밀번호</label>
+    <input type="password" class="login" placeholder="비밀번호">
+  </fieldset> <!--2 oninput, onsearch 이벤트-->
+
+  <fieldset>
+    <legend>oninput, onsearch</legend>
+    <input type="search" placeholder="검색어 입력">
+    <textarea id="content"></textarea>
+  </fieldset> <!--3 onchange, onselect 이벤트-->
+
+  <fieldset>
+    <legend>onchange</legend>
+    <input type="radio" name="book" id="js" value="js">
+    <label for="js">자바스크립트</label>
+    <input type="radio" name="book" id="python" value="py">
+    <label for="python">파이썬</label>
+    <input type="radio" name="book" id="scratch" value="sc">
+    <label for="scratch">스크래치</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>onselect</legend>
+    <select>
+      <option value="0">::선택하세요::</option>
+      <option value="js">자바스크립트</option>
+      <option value="py">파이썬</option>
+      <option value="sc">스크래치</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>선택 결과</legend>
+    <textarea id="content" class="content2"></textarea>
+  </fieldset> <!--4 onreset, onsubmit 이벤트-->
+  <form name="loginform">
+    <fieldset>
+      <legend>onreset, onsubmit</legend>
+      <label class="title2">아이디</label>
+      <input type="text" name="userid" class="login2" placeholder="6자리 이상 아이디"><br>
+      <label class="title2">비밀번호</label>
+      <input type="password" name="passwd" class="login2" placeholder="8자리 이상 비밀번호">
+      <hr>
+      <div class="btns">
+        <input type="reset" value="초기화">
+        <input type="submit" value="전송">
+      </div>
+    </fieldset>
+  </form>
+  <script>
+    const inputs = document.querySelectorAll(".login");
+
+    /*첫번째 로그인 요소에 포커스 이벤트 생성*/
+    inputs[0].onfocus = function(){
+      this.style.backgroundColor = "yellow";
+    }
+
+    //blur = 해당 입력창 이외를 클릭했을 때 발생
+    inputs[1].addEventListener("blur",() =>{
+      //this는 상위객체여서 사용안됌
+      inputs[1].style.backgroundColor = "tomato";
+    })
+
+    const search = document.querySelector("input[type=search]");
+    const content = document.querySelector("#content");
+
+    //input = 입력상자에 문자가 입력될때마다 발생하는 트리거
+    search.addEventListener("input",() =>{
+      //searcr에 입력한 문자를 content 에 적용
+      // content.value = search.value;
+    })
+
+    //search = 검색 상자에 검색어 입력 후 엔터를 누를때 발생하는 트리거
+    search.addEventListener("search",(e)=>{
+      content.value = e.target.value + '를 검색합니다.'
+    })
+
+    const books = document.querySelectorAll("input[name=book]");
+    const select = document.querySelector("select");
+    const content2 = document.querySelector(".content2");
+
+    // change = select의 option을 변경하면 발생하는 이벤트
+
+    for (let i = 0; i<books.length; i++){
+      // books[i].onchange = function(){
+      //   content2.value = this.value
+
+        books[i].addEventListener("change",(e) =>{
+        content2.value = e.target.value
+
+      })
+      }
+    
+      select.addEventListener("change",(e) => {
+        console.log (e.target.selectedIndex + '번째');
+        content2.value = e.target.value;
+      })
+
+      content2.addEventListener("select",(e)=>{
+        if(confirm("선택한 문자열을 복사할까요?")){
+          document.execCommand('copy');//선택한 문자열 복사하기
+          alert(e.target.value + '이 복사되었습니다.')
+        }
+      })
+
+      //reset = form의 리셋버튼을 클릭하면 발생하는 이벤트
+      const myForm = document.querySelector("form[name=loginform]")
+
+      myForm.onreset = function(){
+        alert("초기화")
+      }
+      //submit = 입력창에 입력한 내용을 서버나 어플리케이션으로 보내줌
+      myForm.addEventListener("submit",(e) =>{
+        //유효성 검사
+        if(e.target.userid.value.length < 6){ //id의 글자갯수가 6글자 미만이면 실행
+          alert("6자리 이상 작성해주세요")
+          e.target.userid.focus();
+          e.preventDefault(); // 폼 제출 막기
+        }
+        //비밀번호의 글자 갯수가 8글자 미만이면 실향
+        if(e.target.passwd.value.length < 8){
+          alert("비밀번호를 8자리 이상 작성해주세요")
+          e.target.passwd.focus();
+          e.preventDefault(); // 폼 제출 막기
+        }
+      })
+    // books.addEventListener("change",() =>{
+    //   select.value = content2.value;
+    // })
+  </script>
+</body>
+
+</html>

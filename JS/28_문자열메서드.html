@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열 메서드</title>
+</head>
+<body>
+  <script>
+    //문자열.search(/정규식/)
+    let s = "hello World";
+    console.log(s.search(/[A-Z]/)); //6 띄어쓰기 포함
+    console.log(s.search(/[o]/)); //4
+
+    /*slice*/
+    console.log(s.slice(2,4)); //인덱스2부터 4이전까지 잘라냄(2-3) ll
+    console.log(s.slice(2));//llo World
+    console.log(s.slice(-3));//rld
+    console.log(s);
+
+
+    // /정규식/g 일치하는 문자열을 전부 치환하라는 것
+    // /정규식/i 대소문자 무시하라는 뜻
+
+    //trim 메소드 : 앞뒤의 공백만 제거
+    //let t = "  hello World  "
+    //console.log(trimt) "hello World"
+
+    //replaceAll은 전체의 공백 제거
+
+    let f = "one two three four"
+    let a = f.split(" ");
+
+    for (let i = 0; i < a.length; ++i)
+    console.log(a[i]);
+  </script>
+</body>
+</html>

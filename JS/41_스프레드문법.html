@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스프레드문법</title>
+</head>
+<body>
+  <script>
+    //스프레드 문법 ...연산자를 사용하여 배열이나 문자열을 개별 요소로 분해하여 결합 할 수 있다.
+
+    const arr = [1, 2, 3];
+    const newArr = [...arr] //[1,2,3]
+
+    console.log(newArr)
+
+    //문자열
+    const str1 = "javascript";
+    const str2 = [...str1];
+
+    console.log(str2)
+
+    //배열과 배열을 결합
+    const arr1 = [1,2,3];
+    const arr2 = [4,5,6];
+    const mergedArr = [...arr1, ...arr2];
+
+    console.log(mergedArr)
+  </script>
+</body>
+</html>

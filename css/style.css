@@ -1,0 +1,41 @@
+.container {
+    width: 640px;
+    margin: 0 auto;
+}
+
+h1 {text-align: center;}
+
+.album {
+    width: 640px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.images {
+    position: relative;
+    display: flex;
+    width: 2560px;  /*640*(사진갯수)만큼 넓이를 잡아줘야함!*/
+    height: 400px;
+    transition: transform 0.3s ease-in-out; /*모션효과*/
+}
+
+img {
+    width: 640px; height: 400px;
+}
+
+button, button:active, button:focus{
+    width: 100px; height: 30px; border: none;
+    color: white; background-color: teal; outline: none;
+}
+button:hover {
+    background-color: turquoise;
+}
+button:disabled{ /*버튼을 누를 수 없을 때의 색깔*/
+    background-color: gray;
+}
+.prev{
+    float: left;
+}
+.next {
+    float: right;
+}

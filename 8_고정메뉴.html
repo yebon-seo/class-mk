@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고정메뉴</title>
+  <style>
+    *{margin:0; padding:0;box-sizing: border-box;}
+    ul {list-style: none;}
+    a {text-decoration: none; color: inherit;}
+    html, body {
+      scroll-behavior: smooth; /*부드러운 스크롤 이동*/
+    }
+
+
+    header,section,footer {
+      width: 1000px;
+      height: 900px;
+      margin: auto;
+    }
+    header {background-color: rgb(255, 251, 0);}
+    section {background-color: aquamarine;}
+    footer {background-color: bisque;}
+
+    /*고정메뉴*/
+    .fixed-menu {
+      position: fixed;
+      width: 80px;
+      background-color: white;
+      text-align: center;
+      font-size: 14px;
+      /*위치 이동*/
+      top:100px;
+      left: 50%;
+      margin-left: 500px;
+    }
+
+    .fixed-menu > .title {
+      width: 100%;
+      height: 80px;
+      padding: 20px;
+      background-color: #e4574d;
+      color: white;
+      font-weight: bold;
+    }
+    .btn > li >a {
+      display: block;
+      width: 100%;
+      height: 80px;
+      padding: 30px 0;
+      color: #333;
+      border-bottom: 1px solid #999;
+    }
+    .btn >li:last-child > a { /*li의 마지막 요소의 a요소의 밑줄 제거*/
+      border-bottom: 0;
+    }
+    .top-btn >a {
+      display: block;
+      width: 100%;
+      height: 60px;
+      background-color: #e4574d;
+      padding: 20px 0;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fixed-menu">
+    <div class="title">
+      Quick<br>
+      MENU
+    </div>
+    <ul class="btn">
+      <li><a href=#header>MENU</a></li> <!--해당위치로 이동하기 위해-->
+      <li><a href=#section>MENU</a></li>
+      <li><a href=#footer>MENU</a></li>
+    </ul>
+    <div class="top-btn">
+      <a href="#">TOP</a>
+    </div>
+  </div>
+
+  <header id="header"></header> <!--해당위치로 이동하기 위해-->
+  <section id="section"></section>
+  <footer id="footer"></footer>
+</body>
+</html>

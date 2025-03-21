@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const 키워드</title>
+</head>
+<body>
+  <script>
+    //constant 의 약자로 바뀌지 않는 일정한 값을 뜻함
+    //const로 선언한 변수는 반드시 선언과 동시에 초기화 해야 합니다.
+    //const로 선언한 상수는 재할당 할 수 없으며 다시 선언할 수 없다.
+
+    const a = [ 1, 2, 3, 4];
+    console.log(a)
+    console.log(a[0]) //요소의 순번이 0번째인 값을 호출하라
+
+    a[0] = 10
+    console.log(a)
+    //배열자체를 재할당 하는 것은 안됩니다.
+    a = [5, 6];
+
+  </script>
+</body>
+</html>

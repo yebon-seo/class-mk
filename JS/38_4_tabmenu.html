@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탭메뉴</title>
+  <style>
+    .tab{
+      width: 800px;
+      margin: auto;
+      margin-top: 100px;
+    }
+    .tab_menu {
+      display: flex;
+    }
+    .tab_menu button {
+      /* background-color: transparent; */
+      background-color: thistle;
+      color: #333;
+      border: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      width: 120px;
+      height: 40px;
+      margin-right: 5px;
+      border-radius: 20px 20px 0 0;
+    }
+    .tab_menu button.on { /*on클래스가 추가되면*/
+      background-color: rgb(196, 148, 196);
+      font-weight: bold;
+      color: rgb(230, 255, 6);
+    }
+    .tab_list > div{
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      display: none;
+      background-color: rgb(252, 233, 236);
+    }
+    .tab_list > div.on {
+      display: block;
+    }
+
+    #Menu2::after{
+      content: "";
+      width: 50px;
+      height: 70px;
+      display: block;
+      position: absolute;
+      background-color: thistle;
+      right: -80px;
+      top: 40%;
+      transform: translateX(-60%);
+      border-radius: 0 20px 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab">
+
+    <div class="tab_menu">
+      <button class="on">Menu1</button>
+      <button>Menu2</button>
+      <button>Menu3</button>
+    </div>
+
+    <div class="tab_list">
+      <div id="Menu1" class="on">
+        <h3>Menu1</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis ea nulla autem quos beatae doloribus temporibus sint rem nobis animi, corporis pariatur vitae quaerat deserunt repellat inventore eligendi magnam quas!</p>
+      </div>
+      <div id="Menu2" style="position: relative;">
+        <h3>Menu2</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis ea nulla autem quos beatae doloribus temporibus sint rem nobis animi, corporis pariatur vitae quaerat deserunt repellat inventore eligendi magnam quas!</p>
+      </div>
+      <div id="Menu3">
+        <h3>Menu3</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis ea nulla autem quos beatae doloribus temporibus sint rem nobis animi, corporis pariatur vitae quaerat deserunt repellat inventore eligendi magnam quas!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    //버튼요소와 리스트 요소들을 모두 선택
+    const menu = document.querySelectorAll(".tab_menu > button");
+    const list = document.querySelectorAll(".tab_list > div");
+   
+    //민규쌤
+    // 배열.foreach(콜백함수)
+    // 콜백함수 = (현재 순회중인 요소, 순회중인 요소의 인덱스) =>{실행코드}
+
+    menu.forEach((element, index) => {
+      element.addEventListener("click", () => {
+
+        // menu.forEach((el, idx) => {
+          //   el.classList.remove("on");
+          //   list[idx].classList.remove("on");
+          // })
+          
+        //가독성을 위해 for문으로 수정
+        for (let i =0; i < menu.length; i++){
+          menu[i].classList.remove("on");
+          list[i].classList.remove("on")
+        }
+
+        //클릭한 버튼요소와 같은 순번의 리스트에 on클래스 추가
+        element.classList.add("on");
+        list[index].classList.add("on")
+      })
+    })
+
+
+
+
+
+    //보니
+    // for(let i = 0; i < menu.length; i++){
+    //   menu[i].addEventListener("click",(e) => {
+        
+    //     //클릭한 요소의 인덱스번호 가져와서 우선 삭제먼저
+    //     for(let j = 0; j <menu.length; j++){
+    //       menu[j].classList.remove("on");
+    //       list[j].classList.remove("on");
+    //     }
+
+    //     //클릭한 요소의 인덱스번호 가져와서 추가
+    //     menu[i].classList.add("on");
+    //     list[i].classList.add("on");
+    //   })
+
+      // window.addEventListener("click", (e) => {
+      //   if (![...menu].some(btn => btn.contains(e.target))) {
+      //     list.forEach(item => item.style.display = "none");
+    // }
+
+      
+    // );
+    // }}
+   
+
+  </script>
+</body>
+
+</html>

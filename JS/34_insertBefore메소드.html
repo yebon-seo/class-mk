@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>insertBefore메소드</title>
+</head>
+<body>
+  <button onclick="cloneElement()">노드복제</button>
+  <ul id="fruits">
+    <li>Apple</li>
+    <li>Pear</li>
+    <li>PineApple</li>
+  </ul>
+
+  <script>
+    //li요소 노드 생성
+    const li =document.createElement("li");
+    //텍스트 노드 생성해서 li에 추가
+    li.appendChild(document.createTextNode('Banana'));
+    fruits.insertBefore(li, fruits.firstElementChild);
+
+    //이미 존재하는 요소 노드를 취득
+    const [banana, apple] = fruits.children;
+    console.log(banana, apple)
+
+    //이미 존재하는 banana요소 노드를 fruits요소 노드의 마지막 노드로 이동
+    fruits.appendChild(banana)
+    //이미 존재하는 apple 요소를 fruits요소의 마지막 자식노드 앞으로 이동
+    fruits.insertBefore(apple, fruits.lastElementChild)
+
+    function cloneElement(){
+      const parent = document.querySelector("#fruits");
+      //복제할 요소
+      const oringinItem = parent.lastElementChild
+      //해당 노드를 복제하여 리스트의 마지막에 추가
+      parent.appendChild(oringinItem.cloneNode(true))
+    }
+  </script>
+</body>
+</html>

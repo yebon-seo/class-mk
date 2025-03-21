@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스위치 연습</title>
+  <script>
+      let x =prompt("성인, 미성년자,노인 중 입력");
+      let answer ="";
+
+      switch(x){
+        case "성인" : console.log("1000원");
+          // answer = "1000원"
+          break
+        case "미성년자" : console.log("500원");
+          // answer = "500원"
+          break
+        case "노인" : console.log("무료");
+          // answer = "무료"
+          break
+        default : alert("다시 쓰라는~!")
+        location.reload();
+      }
+
+
+
+      let fruit = prompt("알파벳 입력a,b,c");
+      // let sel = "";
+
+      switch(fruit){
+        case "A" :
+        case "a" : console.log("Apple")
+          // sel = "Apple"
+          break
+        case "b" :
+        case "B" : console.log("Banana")
+          // sel = "Banana"
+          break
+        case "c" :
+        case "C" :  console.log("Cacao")
+          // sel = "Cacao"
+          break
+        default : console.log("stuff")
+          break
+      }
+ 
+
+
+      let grades = prompt("시험점수입력");
+      let result = parseInt(grades/10);
+      // console.log(result)
+
+      switch(result){
+        case 10 :
+        case 9 : console.log("A학점")
+          // good = "A"
+          break
+        case 8 : console.log("B학점")
+          // good = "B"
+          break
+        case 7 : console.log("C학점")
+          // good = "C"
+          break
+        default : alert("재수강")
+      }
+
+
+      
+  </script>
+</head>
+<body>
+
+</body>
+</html>

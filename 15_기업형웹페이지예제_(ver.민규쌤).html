@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기업형 웹페이지</title>
+  <!-- 파비콘 넣는 방법 -->
+  <link href="images/favicon-16x16.png" rel="icon" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /*header*/
+    header {
+      min-width: 1200px;
+      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+    }
+    header .inner {
+      width: 1180px;
+      height: 120px;
+      margin: auto;
+      position: relative;
+    }
+
+  /*로고*/
+    header .inner h1 { 
+      position: absolute;
+      left: 0;
+      bottom: 15px;
+    }
+    header .inner h1 a {
+      font: bold 24px/1 Arial;
+      color: #444;
+    }
+
+  /*util*/
+  header .inner .util{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 20px;
+  }
+  header .inner .util a {
+    font:12px/1 Arial;
+    color: #999;
+  }
+
+  /*gnb*/
+  header .inner #gnb {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+  }
+  header .inner #gnb a {
+    display: block;
+    padding: 20px 30px;
+    font: bold 15px/1 Arial;
+    color: #555;
+    transition: all 0.5s;
+  }
+  /*hover*/
+  header .inner #gnb a:hover {
+    background-color: #555;
+    color: #fff;
+  }
+
+  /*figure 블럭요소*/
+  figure {
+    width: 100%; /*생략가능*/
+    min-width: 1200px;
+    min-height: 500px;
+    height: calc(100vh - 120px); /*전체 브라우저 높이에서 120px(header의 높이)만큼 빼줌*/
+    background: #000;
+    overflow: hidden;
+    position: relative;
+  }
+  figure video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*영역에 꽉 차게 비디오를 채움*/
+    /* 미디어의 위치를 변경*/
+    object-position: bottom; /*하단 고정됨 (가운데 고정하고 싶으면 center)*/
+    opacity: 0.3; /*뒤에 배경이 비춰짐*/
+  }
+  figure .inner{
+    width: 1180px;
+    position: absolute; /*margin auto 안먹힘 떠있쟈낭*/
+    left: 50%;
+    transform: translateX(-50%);/*가운데 정렬*/
+    top:32%;
+  }
+  figure .inner h1 {
+    font: normal 120px/1 Arial;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  figure .inner p {
+    font:16px/1.4 Arial;
+    color: #888;
+    margin-bottom: 60px;
+  }
+  figure .inner a {
+    display: block;
+    width: 400px;
+    height: 30px;
+    border: 1px solid #bbb;
+    text-align: center;
+    font: bold 11px/30px Arial;
+    color: #f1f1f1;
+    letter-spacing: 1px;
+    transition: all 0.5;
+  }
+  figure .inner a:hover{
+    background-color: #f1f1f1;
+    color: #555;
+  }
+
+  /*section*/
+  section {
+    width: 100%;
+    padding: 200px 0;
+  }
+  section .inner{
+    width: 1180px;
+    margin: auto;
+  }
+  section .inner h1 {
+    font:bold 24px/1 arial;
+    color: #555;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  section .inner .wrap {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+  }
+  section article .pic {
+    width: 100%; /*플렉스로 정렬하면 알아서 너비가 지정되서 자리 잡힘*/
+    height: 120px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    transition: all 0.5;
+  }
+  section article img{
+    width: 100%; /*플렉스로 정렬하면 알아서 너비가 지정되서 자리 잡힘*/
+    height: 100%;
+    object-fit: cover;
+  }
+  section article:hover img{
+    opacity: 0.5;
+  }
+  section article h2 a{
+    font: bold 16px/1 arial;
+    color: #555;
+  }
+  section article p{
+    font: 14px/1.4 arial;
+    color: #777;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /*footer*/
+  footer {
+    min-width: 1200px;
+    background-color: #333;
+    padding: 100px 0;
+    border-top: 1px solid #888;
+  }
+  footer .inner {
+    width: 1180px;
+    margin: auto;
+  }
+  footer .inner .upper {
+    width: 100%;
+    border-bottom: 1px solid #777;
+    padding-bottom:20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer .inner .upper h1{
+    font: bold 24px/1 Arial;
+    color: #666;
+  }
+  footer .inner .upper ul {
+    display: flex;
+    gap: 20px;
+  }
+  footer .inner .upper ul a{
+    font: bold 14px/1 Arial;
+    color: #666;
+  }
+  footer .inner .lower{
+    width: 100%;
+    padding-top: 20px;
+  }
+  footer .inner .lower address {
+    width: 100%;
+    font: 12px/1.3 Arial;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  footer .inner .lower p {
+    width: 100%;
+    font: 12px/1 Arial;
+    color: #777;
+  }
+
+
+  </style>
+</head>
+
+<body>  
+  <header>
+    <div class="inner">
+      <h1><a href="#">DCODELAB</a></h1>
+
+      <ul id="gnb">
+        <li><a href=#>DEPARTMENT</a></li>
+        <li><a href=#>GALLERY</a></li>
+        <li><a href=#>YOUTUBE</a></li>
+        <li><a href=#>COMMUNITY</a></li>
+        <li><a href=#>LOCATION</a></li>
+      </ul>
+
+      <ul class="util">
+        <li><a href=#>Contact</a></li>
+        <li><a href=#>Help</a></li>
+        <li><a href=#>Login</a></li>
+        <li><a href=#>Join</a></li>
+        <li><a href=#>Sitemap</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 미디어 파일을 감싸는 용도로 만들어 놓은 태그 -->
+  <figure>
+    <video src="images/visual.mp4" autoplay roop muted></video>
+    <div class="inner">
+      <h1>INNOVATION</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur laliquid,<br> vel ratione aspernatur molestias in voluptas hic, iusto enim mollitia culpa quasi! Id sint quas esse expedita! Eligendi?
+      </p>
+      <a href="#">view detail</a>
+    </div>
+  </figure>
+
+  <section>
+    <div class="inner">
+      <h1>RECENT NEWS</h1>
+      <div class="wrap">
+        <article>
+          <div class="pic">
+            <img src="images/news1.jpg" alt="1번 컨텐츠 이미지">
+            <h2><a href=#>Lorem ipsum dolor sit</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto earum quisquam autem maxime nesciunt,</p>
+          </div>
+        </article>
+        <article>
+          <div class="pic">
+            <img src="images/news2.jpg" alt="2번 컨텐츠 이미지">
+            <h2><a href=#>Lorem ipsum dolor sit</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto earum quisquam autem maxime nesciunt,</p>
+          </div>
+        </article>
+        <article>
+          <div class="pic">
+            <img src="images/news3.jpg" alt="3번 컨텐츠 이미지">
+            <h2><a href=#>Lorem ipsum dolor sit</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto earum quisquam autem maxime nesciunt,</p>
+          </div>
+        </article>
+        <article>
+          <div class="pic">
+            <img src="images/news4.jpg" alt="4번 컨텐츠 이미지">
+            <h2><a href=#>Lorem ipsum dolor sit</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto earum quisquam autem maxime nesciunt,</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="inner">
+      <div class="upper">
+        <h1>DECODELAB</h1>
+        <ul>
+          <li><a href=#>Policy</a></li>
+          <li><a href=#>Terms</a></li>
+          <li><a href=#>Family Site</a></li>
+          <li><a href=#>Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="lower">
+        <address>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+          TEL : 031-111-1234 C.P : 010-1234-5678
+        </address>
+        <p>
+          2025 DECODELAB &copy; copyright all right reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

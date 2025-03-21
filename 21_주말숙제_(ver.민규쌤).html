@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    ul{list-style: none;}
+    a{text-decoration: none;}
+
+    .top-content {
+      width: 1200px;
+      margin: 40px auto 0;
+      position: relative;
+    }
+    .top-content::before {
+      content: "";
+      display: block;
+      width: 430px;
+      height: 340px;
+      border-radius: 0 50px 50px 0;
+      background-color: #eac328;
+      position: absolute;
+      top:calc(50% - 170px);
+      z-index: -1; /*다른요소의 밑으로 내려줍니다.*/
+    }
+    .top-content > .wrap {
+      width: 1020px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-wrap {
+      width: 560px;
+      display: flex;
+      flex-wrap: wrap; /*줄바꿈 허용*/
+      gap: 20px;
+      align-items: center;
+    }
+    .card {
+      width: 270px;
+      height: 320px;
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+      padding: 45px 20px;
+      background: #fff;
+    }
+    .card .icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+    .card .icon i {
+      font-size: 30px;
+      color: #fff;
+    }
+    .card .icon1 {
+      background-color: #0ec1ab;
+    }
+    .card .icon2 {
+      background-color: #177de1;
+    }
+    .card .icon3 {
+      background-color: #eac328;
+    }
+    .card .icon4 {
+      background-color: #e62a5c;
+    }
+    .card h2 {
+      font-size: 18px;
+      color: #111;
+      margin: 20px 0;
+    }
+    .card p {
+      font-size: 14px;
+      color: #666;
+      word-break: keep-all;
+    }
+
+    .card:nth-of-type(2){
+      margin-top: 100px;
+    }
+    .card:nth-of-type(3){
+      margin-top: -100px;
+    }
+    .about {
+      width: 420px;
+    }
+    .about > h1 {
+      font-size: 60px;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      color: #111;
+      margin-bottom: 20px;
+    }
+    .about > h1 span {
+      font-size: 20px;
+      line-height: 1;
+      font-weight: normal;
+      letter-spacing: 2px;
+      color: #666;
+    }
+    .about p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      word-break: break-all;
+    }
+    .about a {
+      display: block;
+      width: 160px;
+      line-height: 50px;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    /*사각형*/
+    .bottom-content::before {
+      content: "";
+      display: block;
+      width: 600px;
+      height: 160px;
+      background-color: #eac328;
+      position: absolute;
+      top: 40%;
+      z-index: -1;
+    }
+    /*동그라미*/
+    .bottom-content::after {
+      content: "";
+      display: block;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background-color: #eac328;
+      position: absolute;
+      top: -220px; right: -60px;
+      z-index: -1;
+
+    }
+    /*동그라미 요소 자르게할려고*/
+    main {
+      width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .bottom-content {
+      margin-top: 220px;
+      width: 1200px;
+      padding: 220px auto 0;
+      position: relative;
+    }
+    .bottom-content .wrap {
+      width: 980px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+    }
+    .bottom-content .txt {
+      width:50%;
+      padding: 0 20px;
+    }
+    .bottom-content .txt h1 {
+      font-size: 50px;
+      line-height: 1.2;
+      color: #111;
+      margin-bottom: 20px;
+    }
+    .bottom-content .txt p {
+      font-size: 16px;
+      color: #666;
+    }
+    .bottom-content .txt .author {
+      color: #111;
+      margin: 40px 0 20px;
+    }
+    .bottom-content .txt a {
+      color: #111;
+      text-decoration: underline;
+    }
+    .bottom-content .pic{
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="top-content">
+      <div class="wrap">
+        <div class="card-wrap">
+          <article class="card">
+            <div class="icon icon1"><i class="fas fa-camera"></i></div>
+            <h2>Sample Headline</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus expedita nesciunt similique ex temporibus eligendi est sunt atque fugiat earum,</p>
+          </article>
+          <article class="card">
+            <div class="icon icon2"><i class="fas fa-camera"></i></div>
+            <h2>Sample Headline</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus expedita nesciunt similique ex temporibus eligendi est sunt atque fugiat earum, </p>
+          </article>
+          <article class="card">
+            <div class="icon icon3"><i class="fas fa-camera"></i></div>
+            <h2>Sample Headline</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus expedita nesciunt similique ex temporibus eligendi est sunt atque fugiat earum, </p>
+          </article>
+          <article class="card">
+            <div class="icon icon4"><i class="fas fa-camera"></i></div>
+            <h2>Sample Headline</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus expedita nesciunt similique ex temporibus eligendi est sunt atque fugiat earum, </p>
+          </article>
+        </div><!--card-wrap END-->
+        <div class="about">
+          <h1>
+            <span>ABOUT</span><br>
+            Need Amazing
+            Design?
+          </h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptatum consequuntur ab, porro ad et libero molestias reiciendis, repellendus officia, accusamus labore fugiat natus? Tempora iste placeat temporibus doloribus eaque.
+          Iusto aliquid culpa cupiditate dignissimos voluptas possimus sit est, at neque! Illo corporis, a iste quod repellat ipsam. Ipsum, corrupti! Illo ratione libero tempore, error cupiditate fugit explicabo atque ullam?</p>
+          <a href="#">READ MORE</a>
+        </div><!--about END-->
+      </div><!--wrap END-->
+    </section>
+
+    <section class="bottom-content">
+      <div class="wrap">
+        <div class="txt">
+          <h1>Web Development<br>
+          &amp; Design?
+          </h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam recusandae placeat illo qui optio aperiam minus iure tempore quae maiores possimus ut, doloremque culpa exercitationem? Harum eum nisi laborum illo.
+          placeat illo qui optio aperiam minus iure tempore quae maiores possimus ut, doloremque culpa exercitationem? Harum eum nisi
+          </p>
+          <p class="author"><em>Image by...</em></p>
+          <a href="#">LEARN MORE</a>
+        </div>
+        <div class="pic">
+          <img src="images/avatar.jpg" alt="">
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

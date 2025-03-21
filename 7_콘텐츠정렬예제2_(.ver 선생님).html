@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃 연습</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <style>
+    @font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    * {margin: 0;padding: 0;
+      box-sizing: border-box;}
+    ul {list-style: none;}
+    a {text-decoration: none; color: inherit;}
+    html, body { /*이렇게 설정하면 자손인 section의 높이를 %로 설정 할 수 있다*/
+      height: 100%;
+    }
+
+    section {
+      width: 100%;
+      min-width: 1200px;
+      height: 100%;
+      background-image: url(images/main.jpg);
+      background-size: cover; /*이미지의 비율을 유지하면서 section영역을 채움*/
+      background-position: center;
+      position: relative;
+    }
+
+    .container {
+      width: 1200px;
+      margin: auto;
+      
+    }
+
+    nav {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    nav > h1 {
+      font-size: 36px;
+      font-family: 'yg-jalnan';
+    }
+
+    .gnb {
+      display: flex;
+      gap: 60px;
+      font-size: 16px;
+      font-family: 'yg-jalnan';
+    }
+
+    .gnb a {
+      position: relative;
+    }
+
+    .gnb a::after {/*a의 자손으로 가상요소 추가*/
+      content: "";
+      display: block;
+      width: 0;
+      height: 4px;
+      background-color: #fff;
+      position: absolute;
+      top:25px;
+      transition: width 0.3s;
+      border-radius: 90px; /*밑줄 끝에 둥글게*/
+    }
+
+    .gnb a:hover::after {
+      /* border-bottom: 2px solid #fff;
+      padding-bottom: 10px; */
+      width: 100%;
+    }
+
+    article {
+      position: absolute;
+      top:50%;left: 50%;
+      transform: translate(-50%, -50%); /*요소 크기의 절반값만큼 왼쪽 위로 이동*/
+    }
+
+    article > h1{
+      font-size: 30px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      font-size: 36px;
+      color: #ffffff;
+    }
+
+    article > .btn {margin-top: 20px;}
+
+    .dot {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%); /*가운데 정렬시 사용하세여*/
+      user-select: none; /*부모한테 줘야해요!텍스트 커서로 복사 못하게*/
+    }
+
+    .dot >li {
+      width: 15px;
+      height: 15px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      display: inline-block;      
+      cursor: pointer;
+      margin-left: 3px;
+    }
+
+    .dot >li:hover,  .dot > li.active{
+      background-color: #fff;
+    }
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <nav>
+        <h1><a href="#">LOGO</a></h1>
+        <ul class="gnb">
+          <li><a href="#">about</a></li>
+          <li><a href="#">news</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">board</a></li>
+          <li><a href="#">album</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+      </nav>
+      <article>
+        <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+          Consequuntur dolores,</h1>
+          <div class="btn">
+            <p><a href="#"><i class="fa-solid fa-left-long"></i></a></p>
+            <p><a href="#"><i class="fa-solid fa-right-long"></i></a></p>
+            <!-- <button type="button">&lt;</button>
+            <button type="button">&gt;</button> -->
+          </div>
+      </article>
+      <ul class="dot">
+        <li></li>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </section>
+</body>
+
+</html>

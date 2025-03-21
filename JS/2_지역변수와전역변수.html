@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지역변수와 전역변수</title>
+</head>
+<body>
+  <script>
+    /*foo 함수를 생성*/
+    // function foo(파라미터(인수)) {실행될코드}
+
+
+    var a = "global"; //전역변수 (함수 외부에서 작성)
+
+    function foo() {
+      //지역변수
+      var x = 'local'; //x변수를 생성하고 'local'을 할당
+      console.log(x);
+      console.log(a);
+    }
+    //foo함수를 싱행
+    foo();
+    console.log(a); 
+    console.log(x); //함수 내부에서 생성된 변수는 함수가 종료되는 시점에서 제거 된다.(충돌막기위해)
+    
+  </script>
+</body>
+</html>

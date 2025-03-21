@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨텐츠 정렬</title>
+  <style>
+    * {margin: 0; padding: 0;box-sizing: border-box;}
+
+    .container {
+      width: 1080px;
+      /* outline: 1px solid red; */
+      display: flex;
+      margin-top: 20px;
+      margin: auto;
+    }
+
+    .container > .left-box{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .container > .left-box > img {
+      width: 160px;
+      height: 160px;
+    }
+
+    .left-box .txt {
+      width: 340px;
+      height: 160px;
+      font-size: 14px;
+      color: #666;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin-left: 20px;
+    }
+
+    .right-box > img {
+      width: 520px;
+      height: 520px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-box">
+      <img src="images/align.jpg" alt="">
+      <div class="txt">
+        <h3>DESCRIPTION</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,</p>
+        <p>dolore odit omnis facere ipsa fugit possimus maiores obcaecati adipisci assumenda ipsam</p>
+        <p>asperiores blanditiis inventore commodi ratione pariatur sit quam unde?</p>
+      </div>
+      <img src="images/align2..jpg" alt="">
+      <div class="txt">
+        <h3>DESCRIPTION</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,</p>
+        <p>dolore odit omnis facere ipsa fugit possimus maiores obcaecati adipisci assumenda ipsam</p>
+        <p>asperiores blanditiis inventore commodi ratione pariatur sit quam unde?</p>
+      </div>
+      <img src="images/align3.jpg" alt="">
+      <div class="txt">
+        <h3>DESCRIPTION</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,</p>
+        <p>dolore odit omnis facere ipsa fugit possimus maiores obcaecati adipisci assumenda ipsam</p>
+        <p>asperiores blanditiis inventore commodi ratione pariatur sit quam unde?</p>
+      </div>
+    </div>
+
+    <div class="right-box">
+      <img src="images/user2.jpg">
+    </div>
+  </div>
+</body>
+</html>

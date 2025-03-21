@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수</title>
+</head>
+<body>
+  <script>
+    function add(a, b){
+      return a + b
+    }
+
+    let result = add(10, 20);
+    console.log(result);
+
+    function multipleCheck(a,b){
+      //a가 정수가 아니거나 b가 정수가 아니면 구문실행
+      if(a <= 0 || b <= 0){
+        console.log('양수를 입력하세요');
+        return;
+      } 
+      if (a % b == 0) console.log('a는 b의 배수입니다.');
+      else console.log('a는 b의 배수가 아닙니다.')
+    }
+    let a = -10, b = 2;
+    multipleCheck(a,b);
+    a = 10, b = 2;
+    multipleCheck(a, b);
+
+    a = add(3,4);
+    console.log(a) //7
+    let f = add;
+    console.log(typeof f); //function
+    b =f(3,4);
+    console.log(b);
+
+    f = function(a,b){
+      return a+b
+    }
+    a = f(3,4);
+    console.log(a);
+  </script>
+</body>
+</html>

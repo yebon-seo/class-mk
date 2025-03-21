@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다운네비게이션 연습</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin: 0; padding: 0;}
+    ul {list-style: none;}
+    a {color: inherit; text-decoration: none;}
+
+    nav {
+      min-width: 1200px;
+      background-color: #9bff6d;
+    }
+
+    nav > .container {
+      width: 1200px; /*반응형에서는 max-width을 사용함*/
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box; /*padding영역을 width안으로 설정*/
+    }
+
+    nav .logo {
+      color: rgba(65, 26, 0, 0.836);
+      font-size: 3 0px;
+    }
+
+    nav .gnb {
+      color: rgba(65, 26, 0, 0.836);
+      display: flex;
+      gap: 60px;
+    }
+
+    .gnb > li  a {
+      display: block;
+      padding: 10px 0;
+      text-indent: 10px;/*요소가 밀리는게 아니라 글자가 밀리는거*/
+    }
+
+    /* .gnb > li > a:hover {
+      color: green;
+    } */
+
+    .gnb > li:hover > a{ /*li에 있는 아래태그를 보더라도 li태그는 계속 색이적용된 상태*/
+      color: rgb(255, 102, 0);
+    }
+
+    .sub > li > a:hover {
+      background-color: rgb(222, 255, 178);
+    }
+
+    .gnb > li {
+      position: relative;
+    }
+
+    .sub {
+      position: absolute;
+      background-color: #ccc;
+      width: 150px;
+      display: none;
+    }
+
+    .gnb > li:hover > .sub{
+      display: block;
+    }
+
+    /* .sub > li >a {
+      display: block;
+      padding: 10px 0;
+      text-indent: 10px;
+    } */
+
+    
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <h1 class="logo">
+        <a href="#"><i class="fa-solid fa-fish-fins"></i><i class="fa-solid fa-otter"></i></a>
+      </h1>
+      <ul class="gnb">
+        <li>
+          <a href="#">ABOUT</a>
+          <ul class="sub">
+            <li><a href="#">My name</a></li>
+            <li><a href="#">Birth day</a></li>
+            <li><a href="#">Education</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">NEWS</a>
+          <ul class="sub">
+            <li><a href="#">Today News</a></li>
+            <li><a href="#">Social</a></li>
+            <li><a href="#">Information</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">PORTFOLIO</a>
+          <ul class="sub">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Ptintout</a></li>
+            <li><a href="#">My photo</a></li>
+            <li><a href="#">Illustration</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">BOARD</a>
+          <ul class="sub">
+            <li><a href="#">Notice</a></li>
+            <li><a href="#">Free Board</a></li>
+            <li><a href="#">Contact Me</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">ALBUM</a>
+          <ul class="sub">
+            <li><a href="#">Our Family</a></li>
+            <li><a href="#">My friends</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">CONTACT</a>
+          <ul class="sub">
+            <li><a href="#">Location</a></li>
+            <li><a href="#">E-mail</a></li>
+            <li><a href="#">Mobile Phone</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>

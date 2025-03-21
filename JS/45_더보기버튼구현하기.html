@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>더보기버튼 구현하기</title>
+  <style>
+    body {
+      text-align: center;
+      padding: 20px;
+    }
+    .image-container {
+      width: 1000px;
+      margin: 20px auto;
+      display: flex;
+      flex-wrap: wrap; /*줄바꿈 허용*/
+    }
+    .image-container img{
+      width: 25%;
+      height: 200px;
+      border: 1px solid #d9d9d9;
+      box-sizing: border-box;
+      object-fit: cover;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .image-container img:hover {
+      opacity: 0.7;
+    }
+
+    #moreBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4acf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    #moreBtn:disabled { /*비활성화시*/
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      overflow: auto;
+      /*큰이미지에는 스크롤바 생기도록*/
+      background-color: rgba(0, 0, 0, 0.9);
+      padding-top: 100px;
+      display: none;
+      z-index: 2;
+    }
+
+    .modal-content {
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      margin: auto;
+      animation: zoom 0.6s;
+    }
+
+    @keyframes zoom {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /*닫기버튼*/
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-weight: 700;
+      font-size: 40px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <div class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content">
+  </div>
+
+  <h1>이미지더보기</h1>
+  <div class="image-container">
+    <img src="images/pic/pic0.jpg" alt="">
+    <img src="images/pic/pic1.jpg" alt="">
+    <img src="images/pic/pic2.jpg" alt="">
+    <img src="images/pic/pic3.jpg" alt="">
+  </div>
+  <button id="moreBtn">더보기</button>
+
+  <script>
+    let imageCount = 0; //현재까지 추가된 이미지 개수
+    const maxImages = 20; //최대 이미지 개수 (19까지 나오면 된대..)
+    const imagesToadd = 4;
+    const imgContainer = document.querySelector(".image-container")
+    const moreBtn = document.querySelector("#moreBtn");
+    //더보기 버튼 클릭이벤트 처리
+    moreBtn.addEventListener("click",() =>{
+      
+    //이미지 컨테이너를 선택
+
+    // 이미지 컨테이너에 한번에 4개씩 이미지 생성
+      for (let i=0; i < imagesToadd; i++){ //4번 반복
+        if(imageCount<maxImages){
+        const newImage = document.createElement("img");
+        // 생성된 이미지에 src속성값을 할당
+        newImage.src = `images/pic/pic${imageCount}.jpg`;
+        newImage.alt = `images${imageCount}`;
+
+        //이미지 컨테이너에 생성된 이미지 추가
+        imgContainer.appendChild(newImage);
+        //이미지값을 1씩 증가
+          imageCount++
+        }
+      }
+      //이미지 갯수가 최대치를 넣으면 비활성화
+      if(imageCount >= maxImages){
+        moreBtn.disabled = true;
+        moreBtn.textContent = "더 이상 추가할 이미지가 없습니다.";
+      }
+    })
+
+    //모달
+    const modal = document.querySelector(".modal")
+    const modalContent = document.querySelector(".modal-content")
+    const closeBtn = document.querySelector(".close")
+
+    imgContainer.addEventListener("click",(e) =>{
+     modalContent.src = e.target.src;
+     modal.style.display = "block"
+    })
+    closeBtn.addEventListener("click",() => {
+      modal.style.display = "none"
+    })
+
+    //윈도우에 클릭이벤트 생성
+    window.addEventListener("click",(e) =>{
+      if(e.target === modal){
+        modal.style.display = "none"
+      }
+    })
+  </script>
+</body>
+</html>

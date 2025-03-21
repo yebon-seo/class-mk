@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 시 커서 회전</title>
+    <style>
+        *{ /* 기본 커서 숨김 */
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: url(images/free-icon-hearts-4045241.png) no-repeat center;
+            background-size: contain;
+            pointer-events: none; /* 마우스 이벤트 방지 */
+            transition: transform .3s ease; /* 부드러운 회전 효과 */
+        }
+    </style>
+</head>
+<body>
+    <UL>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+        <li><a href=#>1</a></li>
+    </UL>
+    <div class="boc">
+        <input type="text" name="" id="">
+    </div>
+    <script>
+        // 가상 커서 요소 생성
+        const cursor = document.createElement("div");
+        cursor.classList.add("custom-cursor");
+        document.body.appendChild(cursor);
+
+        // 마우스 이동 시 커서 위치 업데이트
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+        });
+
+        // 클릭 시 360도 회전
+        document.addEventListener("mousedown", () => {
+            cursor.style.transform = "rotate(720deg)";
+        });
+
+        // 마우스를 떼면 원래대로 복귀
+        document.addEventListener("mouseup", () => {
+            cursor.style.transform = "rotate(0deg)";
+        });
+    </script>
+
+</body>
+</html>

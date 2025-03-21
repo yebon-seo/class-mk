@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연속애니메이션</title>
+  <style>
+    div {
+      width: 320px;
+      height: 240px;
+      position: relative;
+      background: url(images/bg.jpg);
+    }
+    div img {
+      position: absolute;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+
+  <script>
+    //div요소를 선택
+    const parent = document.querySelector("div");
+
+    function arrangeImg(){ //여러개의 이미지를 반복함수로 div요소에 넣어주는 구문
+      for(let i = 0; i <= 20; i++){//i를 0부터 20까지 반복
+        // innerHtml div요소 내부에 img태그 삽입
+        parent.innerHTML += `<img src='images/seq/seq${i}.png'>`;
+      }
+      parent.firstElementChild.style.display = "inline"
+    }
+    //함수호출
+    arrangeImg();
+
+    //애니메이션 만들기
+    let timer; //setInterval 함수를 종료할때 사용할 변수
+    let count = 0; //setInterval에서 주기적으로 함수를 호출할때 img위치가 저장됨
+
+    //parent에 마우스를 올려놨을때
+    parent.addEventListener("mouseover", () => {
+      if(timer) clearInterval(timer)
+      timer = setInterval(nextFrame, 50);//0.5초 마다 함수호출
+    })
+
+    const images = document.querySelectorAll("div > img");
+
+    function nextFrame(){
+      //이미지의 인덱스가 카운트가 같은 순번요소를 선택하여 display를 none으로 화면에서 제거
+      images[count].style.display = "none";
+      count++;
+      if (count > 20 ){
+        count = 20; //count값을 20으로 고정
+        clearInterval(timer);
+      }
+      images[count].style.display = "inline";
+    }
+
+      //parent에 마우스가 떠났을때
+      parent.addEventListener("mouseleave", () => {
+      if(timer) clearInterval(timer)
+      timer = setInterval(prevFrame, 50);//0.5초 마다 함수호출
+    })
+
+    function prevFrame(){
+      //이미지의 인덱스가 카운트가 같은 순번요소를 선택하여 display를 none으로 화면에서 제거
+      images[count].style.display = "none";
+      count--;
+      if (count < 0 ){
+        count = 0; //count값을 20으로 고정
+        clearInterval(timer);
+      }
+      images[count].style.display = "inline";
+    }
+  </script>
+</body>
+</html>

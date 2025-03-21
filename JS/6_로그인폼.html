@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인폼</title>
+</head>
+<style>
+  *{margin: 0;padding: 0;box-sizing: border-box;}
+  .login {
+    display: none;
+    position: fixed;
+    top: 0; right: 0;left: 0;bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .login > .container {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 150px);
+  }
+  .login .close {
+    padding: 6px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: right;
+  }
+  .login .close button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+  }
+  .login .close button:hover {
+    color: #ac2626;
+  }
+
+  .login form{
+    padding: 20px 40px;
+  }
+  .login label {
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 2;
+  }
+  .login input {
+    width: 100%;
+    height: 30px;
+    text-indent: 10px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+  }
+  .login button[type=submit]{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    background: #111;
+    border: none;
+    color: #fff;
+    margin-top: 16px;
+    cursor: pointer;
+  }
+  .login button[type=submit]:hover{
+    background-color: gold;
+    color: #333;
+  }
+</style>
+<body>
+  <div class="login">
+    <div class="container">
+      <div class="close">
+        <button onclick="pClose()">x</button>
+      </div>
+      <form>
+        <p>
+          <label for="user">사용자명 또는 이메일 주소</label><br>
+          <input type="text" id="user" name="user">
+        </p>
+        <p>
+          <label for="pw">암호</label><br>
+          <input type="password" id="pw" name="pw">
+        </p>
+        <button type="submit">로그인</button>
+      </form>
+    </div>
+  </div>
+  <section class="content">
+    <h1>로그인 입력창을 만들어 봅시다</h1>
+    <button onclick="popup()" style="padding: 10px 20px;">Login</button>
+  </section>
+
+  <script>
+    const login = document.querySelector(".login");
+    
+    //popup 함수를 생성
+    function popup(){
+      //login 요소의 display속성을 블럭으로 변경하여 화면에 나타나게 함
+      login.style.display = "block"
+    }
+
+    function pClose(){
+      login.style.display = "none"
+    }
+    
+    //window객체(브라우저 내에서) 안에서 클릭 이벤트가 발생하면 구문 실행
+    window.addEventListener("click", function(e){
+      //인수로 전달 되는 e=이벤트 객체
+      console.log(e.target) //e.target 이벤트가 발생될 때 클릭한 요소를 읽어 올 수 있다.
+      if(e.target === login){ //클릭한 요소가 로그인이면 실행
+        login.style.display = "none";
+      }
+    })
+  </script>
+</body>
+</html>

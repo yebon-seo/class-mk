@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 슬라이드</title>
+  <style>
+    section{
+      width:500px;
+      height:300px;
+      margin:auto;
+      position:relative;
+    }
+    .prev,
+    .next{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+    }
+    .prev{left:0;}
+    .next{right:0;}
+
+    .imgSlide{
+      width:400px;
+      height:300px;
+      margin:auto;
+      overflow:hidden;
+    }
+    .imgSlide .imgGroup{
+      width:300%;
+      display:flex;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="imgSlide">
+      <div class="imgGroup">
+        <img src="images/img1.jpg" alt="">
+        <img src="images/img2.jpg" alt="">
+        <img src="images/img3.jpg" alt="">
+      </div>
+    </div>
+    <a class="prev" href="#"><img src="images/prev_btn.png"></a>
+    <a class="next" href="#"><img src="images/next_btn.png"></a>
+  </section>
+
+  <script>
+    //setInterval(function, delayTime) : 콜백함수를 반복호출하여 무한 스크롤
+    //setTimeout(function, delayTime) : 콜백함수를 delayTime후에 한번만 실행
+
+    //slide를 적용할 이미지의 그룹(부모)을 선택
+    const slide = document.querySelector(".imgGroup");
+    let eventhandler = true; //이벤트 중첩을 막아줄 변수
+
+    //반복 호출할 함수를 따로 작성하는 이유 = 코드를 재사용하기 위해서
+    function autoplay(){
+      //slide요소에 traisiton속성을 적용하여 0.5초에 걸쳐 margin-left속성으로 애니메이션 되도록 적용
+      slide.style.transition = "margin-left .5s";
+      //slide를 왼쪽으로 400px만큼 이동시킴
+      slide.style.marginLeft = "-400px";
+      //0.5초후에 transition을 속성을 제거하고 marinLeft값을 0으로 초기화
+      setTimeout(function(){
+        slide.style.transition = "none";
+        slide.style.marginLeft = "0px";
+        //slide의 첫번째 자식 요소 = slide.firstElementChild
+        //부모요소.appendChild(부모요소의 마지막 자식요소로 넣어줄 요소)
+        //첫번째 이미지를 마지막 위치로 이동
+        slide.appendChild(slide.firstElementChild)
+        //슬라이드가 종료된 후 eventhandler를 다시 true로 바꿔서 클릭이벤트가 발생되도록 변경
+        eventhandler = true;
+      },500);
+    }
+
+    //반복 호출할 함수 생성
+    let timer = setInterval(autoplay, 3000);
+
+    //section요소 선택
+    const section = document.querySelector("section");
+    
+    //section요소에 마우스를 올리면 반복함수를 종료
+    section.addEventListener("mouseenter",() => {
+      clearInterval(timer)//setInterval함수를 종료
+    })
+
+    //section요소에서 마우스가 떠나면 반복함수를 다시 호출
+    section.addEventListener("mouseleave", () => {
+      timer = setInterval(autoplay, 3000);
+    })
+
+
+
+
+    //next버튼에 클릭이벤트 생성
+    document.querySelector(".next").addEventListener("click",() => {
+      //eventhandler가 true일때만 autoplay함수를 호출해라
+      if(eventhandler){
+        eventhandler = false; //eventhandler를 fasle로 변경하여 autoplay가 실행되지 않도록 합니다
+        autoplay(); //autoplay함수를 호출하여 왼쪽으로 슬라이드 시킴
+      }
+    })
+
+    //prev버튼에 클릭이벤트 생성
+    document.querySelector(".prev").addEventListener("click", () => {
+      if(eventhandler){//eventhandler가 true일때만 구문 실행
+        eventhandler = false;//eventhandler를 false로 변경
+        //먼저 이미지를 오른쪽을 이동시키는 애니메이션을 적용시키기위해 이미지 그룹의 위치를 왼쪽을 이동시킴
+        slide.style.transition = "none";
+        slide.style.marginLeft = "-400px";
+        //마지막 이미지를 처음위치로 이동시킴
+        //slide.insertBefore(이동시킬요소, 이동할 위치(요소의 앞으로 이동))
+        slide.insertBefore(slide.lastElementChild, slide.firstElementChild)
+        
+        //0.05초 후에 slide를 0px위치로 이동시킴
+        setTimeout(function(){
+          slide.style.transition = "margin-left .5s";
+          slide.style.marginLeft = "0px";
+          //슬라이드가 종료된후에 eventhandler를 true로 변경하여 다시 이벤트가 발생 되도록 변경
+          setTimeout(function(){
+            eventhandler = true;
+          },500)
+        },50)
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로딩중인 이미지 만들기</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    #loading {
+      background-color: #ddd;
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center; /*요소들 가로세로 가운데 정렬 그리드는 꼭 줘얗함*/
+      transition: all 1s;
+    }
+    .spinner {
+      width: 200px;
+      height: 200px;
+    }
+    /*loaded클래스가 추가 되면 로딩이미지를 감추기*/
+    .loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+    /*컨텐츠 부분*/
+    .gallery {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <img class="spinner" src="images/loading.png" alt="">
+  </div>
+
+  <!-- 콘텐츠 -->
+   <div class="gallery">
+    <div class="item">
+      <img src="images/img1.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img2.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img3.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img4.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img5.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img6.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img7.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img8.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img9.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img10.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img11.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="images/img12.jpg" alt="">
+    </div>
+    </div>
+
+  <script>
+    //로딩요소를 선택
+    const loading = document.querySelector("#loading");
+    //모든 리소스 불러오기가 완료되면 #loading 에 loaded를 추가해서 로딩아이콘 감추기
+    window.addEventListener("load", function(){
+      loading.classList.add("loaded");
+    })
+  </script>
+</body>
+</html>

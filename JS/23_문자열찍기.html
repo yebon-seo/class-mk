@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열찍기</title>
+  <style>
+    p{
+      font-size: 30px;
+      text-align: center;
+      font-weight: 900;
+      color: rebeccapurple;
+    }
+  </style>
+</head>
+<body>
+  <p id="typing"></p>
+  
+  <script>
+    let x = "Who's Next?";//Heaven helps those who help themselves.
+    let i = 0; //글자의 순번을 담을 변수
+
+    //typing요소를 선택
+    const typing = document.querySelector("#typing");
+
+    //typeWriter함수를 생성
+    const typeWriter = () => {
+      if(i < x.length){//타이핑요소에 x변수의 글자중 인덱스가 i번째인 글자를 더해서 할당
+      typing.innerHTML += x[i];
+      i++; //i변수에 1을 더해서 다시 i변수에 할당
+      // console.log(x.length)}
+      setTimeout(typeWriter, 200);//0.2초 뒤에 함수를 다시 호출 /재귀함수/
+      } else {//i변수가 x변수의 글자수보다 같거나 커지면 실행
+        i = 0; //i =0 으로 초기화하고
+        //1초뒤에 recall함수 호출
+        setTimeout(recall, 5000);
+      }
+    }
+    const recall = () =>{
+      typing.textContent = "";
+      typeWriter();
+    }
+
+    typeWriter();
+
+  </script>
+</body>
+</html>

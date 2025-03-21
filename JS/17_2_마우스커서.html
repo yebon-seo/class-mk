@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스를 따라다니는 이미지</title>
+  <style>
+    *{margin: 0;padding: 0; cursor: url(images/mouse_img_32.png)2 2,auto} /*커서 제거*/
+
+    body{overflow: hidden;}
+    ul {
+      list-style: none;
+      padding: 20px 0;
+      display: flex;
+      gap: 80px;
+      justify-content: center;
+    }
+
+    #cursor {
+      position: absolute;
+      pointer-events: none;
+
+      /*커서요소에 이벤트가 발생되지 않도록 함*/
+    }
+    #cursor img {
+      display: block;
+      width: 50px; height: 50px;
+      transition: transform 0.3s; /*마우스 올려놓았을 시 효과*/
+      transition: all 0.3s;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="cursor">
+    <img src="images/free-icon-hearts-4045241.png" alt="마우스커서">
+  </div>
+  <header>
+    <ul class="links">
+      <li><a href="#">메뉴</a></li>
+      <li><a href="#">메뉴</a></li>
+      <li><a href="#">메뉴</a></li>
+      <li><a href="#">메뉴</a></li>
+      <li><a href="#">메뉴</a></li>
+    </ul>
+  </header>
+
+  <script>
+    const cursor = document.querySelector("#cursor");
+    
+    //브라우저 내에서 마우스무브 이벤트 생성
+    window.addEventListener("mousemove", function(e){//윈도우는 생략가능
+      //마우스의 x,y좌표값을 할당
+      let x =e.clientX - 25;
+      let y =e.clientY - 25;
+      cursor.style.top = `${y}px`;
+      cursor.style.left = `${x}px`;
+    })
+    //링크 메뉴들을 nodelist로 선택
+    const links = document.querySelectorAll(".links li");
+    //반복 함수
+    //배열.forEach((배열요소,인덱스) => {실행코드}) for Each에는 꼭 화살표함수를 써야 함
+
+    //links배열의 배열요소를 link로 순회하면서 mouseenter이벤트를 생성
+    links.forEach(link => link.addEventListener("mouseenter",() => {
+      // console.log("이벤트발생")
+      cursor.querySelector("img").style.transform = "rotate(180deg)"
+    }))
+    links.forEach(link => link.addEventListener("mouseleave",() => {
+      // console.log("이벤트발생")
+      cursor.querySelector("img").style.transform = "rotate(0deg)"
+    }))
+  </script>
+</body>
+</html>

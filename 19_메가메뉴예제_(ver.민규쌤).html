@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메가메뉴</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+  <style>
+    *{
+      margin: 0;padding: 0;
+    }
+    ul{list-style: none;}
+    a{text-decoration: none;}
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    nav {
+      background-color: rgb(255, 255, 255);
+    }
+    nav > .gnb {
+      width: 1200px;
+      margin: auto;
+      display: flex;
+      position: relative;
+    }
+    nav > .gnb > li > span,
+    nav > .gnb > li > a {
+      display: block;
+      width: 200px;
+      line-height: 80px;
+      text-align: center;
+      color: #433f35;
+      font-weight: 700;
+    }
+    nav > .gnb > li > span{
+      color: #adc477;
+      cursor: pointer;
+    }
+    nav > .gnb > li > span i {
+      margin-right: 5px;
+    }
+
+    .gnb .mega {
+      position: absolute;
+      width: 100%;
+      background-color: #f7f8f5;
+      display: none;
+      padding: 20px 44px;
+      box-sizing: border-box;
+      gap: 50px;
+    }
+
+    nav > .gnb > li:hover .mega{
+      display: flex;
+    }
+    .mega h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #433f35;
+      margin-bottom: 20px;
+    }
+    .mega .sub a {
+      font-size: 12px;
+      line-height: 3;
+      color: #828380;
+    }
+    .mega .sub a:hover {
+      color: #adc477;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="gnb">
+      <li>
+        <span><i class="fas fa-bars"></i>전체카테고리</span>
+        <div class="mega">
+          <div class="sub">
+            <h2>매일채움견과</h2>
+            <ul>
+              <li><a href="#">에브리데이넛츠 시리즈</a></li>
+              <li><a href="#">프리미엄 시리즈</a></li>
+              <li><a href="#">실속있는 시리즈</a></li>
+              <li><a href="#">THE 시리즈</a></li>
+              <li><a href="#">낱봉구매</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>견과류</h2>
+            <ul>
+              <li><a href="#">견과류</a></li>
+              <li><a href="#">브라질너트</a></li>
+              <li><a href="#">사치인치</a></li>
+              <li><a href="#">알토리꿀밤</a></li>
+              <li><a href="#">시즈닝 견과류</a></li>
+              <li><a href="#">견과 선물세트</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>건과일류</h2>
+            <ul>
+              <li><a href="#">건블루베리</a></li>
+              <li><a href="#">건크랜베리</a></li>
+              <li><a href="#">건망고</a></li>
+              <li><a href="#">건자두</a></li>
+              <li><a href="#">건파인애플</a></li>
+              <li><a href="#">건포도</a></li>
+              <li><a href="#">건파파야</a></li>
+              <li><a href="#">건타트체리</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>믹스너트</h2>
+            <ul>
+              <li><a href="#">용기류</a></li>
+              <li><a href="#">파우치류</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>스낵류</h2>
+            <ul>
+              <li><a href="#">스낵바</a></li>
+              <li><a href="#">과자류</a></li>
+              <li><a href="#">초콜릿</a></li>
+              <li><a href="#">육포</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>분말/파우더</h2>
+            <ul>
+              <li><a href="#">용기류</a></li>
+              <li><a href="#">파우치류</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>백화점/대형마트</h2>
+            <ul>
+              <li><a href="#">대형마트</a></li>
+              <li><a href="#">백화점</a></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h2>헛깨로확깨!</h2>
+          </div>
+        </div>
+      </li>
+      <li><a href="#">베스트 상품</a></li>
+      <li><a href="#">신상품</a></li>
+      <li><a href="#">오늘만 특가</a></li>
+      <li><a href="#">알뜰쇼핑</a></li>
+      <li><a href="#">벌크쇼핑</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

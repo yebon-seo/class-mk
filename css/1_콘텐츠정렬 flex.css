@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {text-decoration: none;}
+
+.container {
+  width: 1080px;
+  margin: 0 auto;
+  display: flex; /* Flexbox 활성화 */
+  flex-wrap: wrap; /* 한 줄에 공간 부족 시 다음 줄로 넘어감 */
+}
+
+.content-box {
+  width: 520px; /* 한 줄에 두 개씩 배치 */
+  display: flex; /* 내부 요소 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  margin: 10px;
+} 
+
+.title-img {
+  width: 160px;
+  height: 160px;
+  margin-right: 20px; /* 이미지와 컨텐츠 사이 간격 */
+  object-fit: cover;
+}
+
+.content {
+  width: 340px;
+  height: 160px;
+}
+
+.content .title {
+  font-size: 24px;
+}
+
+.content p {
+  font-size: 14px;
+  margin: 10px 0;
+  
+}

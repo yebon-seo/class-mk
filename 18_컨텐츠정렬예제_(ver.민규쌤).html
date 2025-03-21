@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>콘텐츠정렬</title>
+  <style>
+    *{margin: 0; padding: 0;box-sizing: border-box;}
+    ul {list-style: none;}
+
+    .container {
+      width: 1020px;
+      margin: auto;
+    }
+    .top{
+      display: flex;
+      justify-content: space-between;
+    }
+    .gallery {
+      width: 500px;
+      height: 520px;
+      background: url(images/color.png) center/cover;
+      position: relative;
+    }
+    .gallery .title {
+      width: 100%;
+      height: 120px;
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+    }
+    .gallery .title h2 {
+      color: #fff;
+      font-weight: normal;
+      padding-top: 20px;
+    }
+    .dot > li{
+      width: 15px;
+      height: 15px;
+      background-color: #fff;
+      display: inline-block;
+      border-radius: 10px;
+      margin: 20px 2px;
+      cursor: pointer;
+    }
+    .dot > .active {
+      width: 50px;
+    }
+
+    .thumbs {
+      width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .thumbs > .pic {
+      width: 240px;
+      height: 250px;
+      position: relative;
+    }
+    .thumbs > .pic:nth-child(1){
+      background: url(images/img1.png);
+    }
+    .thumbs > .pic:nth-child(2){
+      background: url(images/img2.png);
+    }
+    .thumbs > .pic:nth-child(3){
+      background: url(images/img3.png);
+    }
+    .thumbs > .pic:nth-child(4){
+      background: url(images/img4.png);
+    }
+
+    .thumbs > .pic > .txt {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 8px 20px;
+    }
+
+    .bottom {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+    }
+    .bottom > .banner{
+      width: 500px;
+      height: 160px;
+      background: gold url(images/banner1.png)no-repeat 350px center;
+      padding: 25px 40px;
+    }
+    .bottom > .banner > h2 {
+      font-weight: normal;
+      letter-spacing: 1px;
+      color: #1b1b1b;
+    }
+    .bottom > .site {
+      width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+    }
+    .bottom > .site >.pic{
+      width: 240px;
+      height: 70px;
+      border: 1px solid #999;
+    }
+    .bottom > .site > .pic:nth-child(1){
+      background: url(images/banner2.png)center/cover;
+    }
+    .bottom > .site > .pic:nth-child(2){
+      background: url(images/banner3.png)center/cover;
+    }
+    .bottom > .site > .pic:nth-child(3){
+      background: url(images/banner4.png)center/cover;
+    }
+    .bottom > .site > .pic:nth-child(4){
+      background: url(images/banner5.png)center/cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="gallery">
+        <div class="title">
+          <h2>Lorem Ipsum</h2>
+          <ul class="dot">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <div class="thumbs">
+        <div class="pic">
+          <div class="txt">Lorem Ipsum</div>
+        </div>
+        <div class="pic">
+          <div class="txt">Lorem Ipsum</div>
+        </div>
+        <div class="pic">
+          <div class="txt">Lorem Ipsum</div>
+        </div>
+        <div class="pic">
+          <div class="txt">Lorem Ipsum</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="banner">
+        <h2>
+          <b>디자인하우스</b>에서 <br>
+          더 많은 인사이트를<br>
+          발견하세요!
+        </h2>
+      </div>
+      <div class="site">
+        <div class="pic"></div>
+        <div class="pic"></div>
+        <div class="pic"></div>
+        <div class="pic"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 슬라이드</title>
+  <style>
+    section {
+      width: 500px;
+      height: 300px;
+      margin: auto;
+      position: relative;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .imgSlide {
+      width: 400px;
+      height: 300px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .imgSlide .imgGroup {
+      width: 300%;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="imgSlide">
+      <div class="imgGroup">
+        <img src="./images/인터벌슬라이드/img1.jpg" alt="">
+        <img src="./images/인터벌슬라이드/img2.jpg" alt="">
+        <img src="./images/인터벌슬라이드/img3.jpg" alt="">
+        <img src="./images/인터벌슬라이드/img4.jpg" alt="">
+      </div>
+    </div>
+    <a class="prev" href="#"><img src="images/prev_btn.png"></a>
+    <a class="next" href="#"><img src="images/next_btn.png"></a>
+  </section>
+
+  <script>
+  const slide = document.querySelector(".imgGroup");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+let autoSlide = setInterval(nextSlide, 3000);
+
+// 버튼 클릭 시 자동 슬라이드 멈추고 3초 뒤 재시작
+function stopAutoSlideTemporarily() {
+    clearInterval(autoSlide);
+    setTimeout(() => {
+        autoSlide = setInterval(nextSlide, 3000);
+    }, 3000);
+}
+
+function nextSlide() {
+    stopAutoSlideTemporarily();
+    nextBtn.disabled = true; // 🚀 클릭 방지
+    prevBtn.disabled = true;
+
+    slide.style.transition = "margin-left 0.5s";
+    slide.style.marginLeft = "-400px";
+
+    setTimeout(() => {
+        slide.appendChild(slide.firstElementChild);
+        slide.style.transition = "none";
+        slide.style.marginLeft = "0";
+        nextBtn.disabled = false; // 🚀 클릭 활성화
+        prevBtn.disabled = false;
+    }, 500);
+}
+
+function prevSlide() {
+    stopAutoSlideTemporarily();
+    nextBtn.disabled = true;
+    prevBtn.disabled = true;
+
+    slide.style.transition = "none";
+    slide.style.marginLeft = "-400px";
+
+    slide.insertBefore(slide.lastElementChild, slide.firstElementChild);
+
+    setTimeout(() => {
+        slide.style.transition = "margin-left 0.5s";
+        slide.style.marginLeft = "0px";
+
+        setTimeout(() => {
+            slide.style.transition = "none";
+            nextBtn.disabled = false;
+            prevBtn.disabled = false;
+        }, 500);
+    }, 10);
+}
+
+// 버튼 위에 마우스를 올리면 자동 슬라이드 멈춤
+[nextBtn, prevBtn].forEach((btn) => {
+    btn.addEventListener("mouseenter", () => clearInterval(autoSlide));
+    btn.addEventListener("mouseleave", stopAutoSlideTemporarily);
+});
+
+// 버튼 클릭 시 슬라이드 이동
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+
+// 전체 섹션에서 마우스 올리면 자동 슬라이드 멈춤
+document.querySelector("section").addEventListener("mouseenter", () => clearInterval(autoSlide));
+
+// 전체 섹션에서 마우스가 떠나면 자동 슬라이드 재시작
+document.querySelector("section").addEventListener("mouseleave", stopAutoSlideTemporarily);
+
+  </script>
+</body>
+
+</html>

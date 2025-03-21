@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언</title>
+</head>
+<style>
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: left;
+    transition: .4s;
+  }
+
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+
+  /*add icon*/
+  .accordion::after {
+    content: '\02795';
+    /*plus아이콘*/
+    font-size: 13px;
+    color: #777;
+    float: right;
+  }
+
+  .active::after {
+    content: "\2796";
+    /*마이너스 아이콘*/
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: #fff;
+    overflow: hidden;
+    max-height: 0;
+    /*이걸 안주면 보이지롱*/
+    transition: max-height 0.2s ease-out;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+</style>
+
+<body>
+  <section>
+    <h1>메롱메올</h1>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt
+        minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.Lorem
+        ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui
+        magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.</p>
+    </div>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt
+        minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.Lorem
+        ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui
+        magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.</p>
+    </div>
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt
+        minima qui magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.Lorem
+        ipsum dolor sit amet consectetur, adipisicing elit. Itaque doloremque ex neque eveniet inventore sunt minima qui
+        magnam sit pariatur soluta illo, provident sed quaerat optio quisquam libero iusto distinctio.</p>
+    </div>
+  </section>
+
+  <script>
+    //선택자
+    const acc = document.querySelectorAll(".accordion");
+    for (let i = 0; i < acc.length; i++) { //아코디언 버튼의 갯수만큼 반복
+      acc[i].addEventListener("click", function () {
+        //클릭한 버튼요소에 active 클래스를 추가 또는 제거
+        acc[i].classList.toggle("active");
+        //클릭한 버튼의 다음 형제 요소인 패널을 선택
+        // const panel = acc[i].nextElementSibling;
+        //해당 패널만 펼쳐지고 다른 패널은 접어야 하므로 모든 패널을 nodelist로 선택한다.
+        const panel = document.querySelectorAll(".panel")
+
+
+
+        /*패널의 maxHeight 값이 0이 아니면 실행*/
+        if (panel[i].style.maxHeight) { //클릭한 아코디언 버튼과 같은 순번의 패널의 maxHight값을 참조
+          //패널이 펼쳐져 있는 아코디언을 클릭하면
+          for (let j = 0; j < panel.length; ++j) {
+            panel[j].style.maxHeight = null  /* maxHeight값을 null로 설정하여 패널을 접어줍니다.0으로 작성하면 결과값이 0px로 반환되기 때문에 null로 적용*/
+          }
+        } else { //패널이 펼쳐져 있지 않은 아코디언을 클릭하면...
+          for (let p = 0; p < panel.length; ++p) {
+            //모든 패널을 접어주고..
+            panel[p].style.maxHeight = null
+            //여기서 펼쳐지는 패널과 같은 index의 아코디언을 제외한 모든 아코디언에 acvive 클래스를 제거해 주어야 한다.
+            //NodeList요소의 index를 구하려면 NodeList를 배열로 변경해줘야 한다.(Array.from(panel) = NodeList를 배열로 변경
+            //indexOf메서드를 사용하여 순번을 구할 수 있다.
+            console.log(Array.from(panel).indexOf(panel[p]))
+            if(Array.from(panel).indexOf(panel[p]) !== Array.from(acc).indexOf(acc[i])){
+              //배열을 순회하여 반복중인 패널의 index와 클릭이벤트가 발생한 아코디언의 index가 같지 않으면
+              //active 클래스를 제거한다
+              acc[p].classList.remove("active");
+            }
+          }
+          //클릭한 아코디언과 같은 index의 패널을 펼쳐줍니다.
+          panel[i].style.maxHeight = panel[i].scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

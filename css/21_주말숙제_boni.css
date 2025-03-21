@@ -1,0 +1,157 @@
+
+* {margin: 0; padding: 0;box-sizing: border-box;}
+.container {
+  min-width: 1200px;
+}
+
+#top {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+#top > .square {
+  width: 430px;
+  height: 340px;
+  background-color: gold;
+  border-radius: 0 20px 20px 0;
+  margin-top: 160px;
+}
+#top > .float-box {
+  position: absolute;
+  display: flex;
+  gap: 40px;
+  margin-left: 90px;
+  margin-top: 40px;
+}
+#top > .float-box > .wrap-right {
+  margin-top: 100px;
+}
+#top > .float-box .box {
+  width: 270px;
+  height: 320px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px #ccc;margin-top: 40px;
+}
+#top > .float-box .box i {
+  width: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  color: #fff;
+  margin-top: 45px;
+  margin-left: 20px;
+  font-size: 45px;
+  text-align: center;
+}
+#top > .float-box .box h2 {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-left: 20px;
+  color: #333;
+}
+#top > .float-box .box p {
+  font-size: 14px;
+  margin-top: 30px;
+  margin-left: 20px;
+  color: #333;
+}
+#top > .float-box >.wrap-left > .box:first-child i {
+  background-color: aquamarine;
+}
+#top > .float-box >.wrap-left > .box:last-child i {
+  background-color: gold;
+}
+#top > .float-box >.wrap-right > .box:first-child i {
+  background-color: rgb(40, 119, 247);
+}
+#top > .float-box >.wrap-right > .box:last-child i {
+  background-color: rgb(249, 16, 195);
+}
+
+#top > .txt {
+  margin-top: 140px;
+}
+#top > .txt > h3{
+  font-size: 20px;
+  color:#666;
+  letter-spacing: 2px;
+}
+#top > .txt > h2{
+  font-size: 60px;
+  color:#333;
+}
+#top > .txt > p{
+  font-size: 16px;
+  color:#333;
+  line-height: 32px;
+}
+#top > .txt > button {
+  width: 160px;height: 50px;
+  outline: none; border: none;
+  background-color: #333;
+  color: #fff;
+  margin-top: 20px;
+}
+
+
+#bottom {
+  width: 1200px;
+  margin-top: 500px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+#bottom .circle {
+  width: 340px;height: 340px;
+  border-radius: 50%;
+  background-color: gold;
+  position: absolute;
+  left: 80%;
+  margin-bottom: auto;
+}
+#bottom .txt {
+  margin-top: 220px;
+  position: relative;
+}
+#bottom .txt h2 {
+  font-size: 50px;
+  color: #333;
+  margin-left: 130px;
+}
+#bottom .txt p {
+  font-size: 16px;
+  color: #333;
+  margin-left: 130px;
+  padding: 10px 0;
+}
+#bottom .txt .bg{
+  margin-top: 20px;
+  background-color: gold;
+  width: 600px;
+  height: 160px;
+}
+#bottom .txt span {
+  color: #333;
+  font-style: italic;
+  margin-left: 130px;
+  display: block;
+  margin-top: 40px;
+}
+#bottom .txt h4 {
+  color: #333;
+  text-decoration: underline;
+  font-weight: normal;
+  margin-left: 130px;
+  margin-top: 20px;
+}
+#bottom .pic {
+  position: absolute;
+  right:190px;
+  bottom: -70px;
+}
+#bottom .pic img{
+  height: 500px;
+}
+

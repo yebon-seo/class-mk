@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스위치2</title>
+  <script>
+    //break문을 사용하지 않는 경우
+    //월을 영어로 변환한다 (11 -> November)
+
+    let month = 3; //달을 숫자로 담은 변수
+    let monthName;//영어로 변환된 값을 담을 변수
+    switch(month){
+      case 1:monthName = 'January';
+      case 2:monthName = 'February';
+      case 3:monthName = 'March';
+      case 4:monthName = 'April';
+      case 5:monthName = 'May';
+      case 6:monthName = 'June';
+      case 7:monthName = 'July';
+      case 8:monthName = 'August';
+      case 9:monthName = 'September';
+      case 10:monthName = 'October';
+      case 11:monthName = 'November';
+      case 12:monthName = 'December';
+      default :monthName = 'Invaild Month';
+    }
+    console.log(monthName);
+
+    //폴 스루 활용(윤년 구하기)
+    let year = 2120;//2000년은 윤년으로 2월이 29일
+    month =2;
+    let days = 0;
+
+    switch(month){
+      //month가 1,3,5,7,8,10,12월 경우 days = 31
+      case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        days = 31;
+        break;
+      //Month사 4,6,9,11일 경우 days = 30
+      case 4: case 6: case 9: case 11:
+        days = 30;
+        break;
+      case 2: days = ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) ? 29 : 28
+    }
+    document.write(days)
+
+    //윤년 계산 알고리즘
+    // 1. 연도가 4로 나눠떨어지는 해 (2000,2004,2008...)는 윤년이다.
+    // 2. 연도가 4로 나누어 떨어지더라도 연도가 100으로 나누어 떨어지는 해(2000, 2100,2200...)는 평년이다.
+    // 3. 연도가 400으로 나누어 떨어지는 해 (2000, 2400, 2800...)는 윤년이다
+
+    // days = ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) ? 29 : 28
+
+
+    //입력한 포털 사이트로 이동하는 코드
+    let site = prompt("네이버, 다음, 네이트, 구글 중 즐겨 사용하는 포털 검색 사이트는?","");
+
+    let url;//변수 url 생성
+    switch(site){ //switch의 인자 값으로 site변수를 지정
+      case "구글" : url = "https://www.google.com"
+      //사이트가 구글이면 url에 구글주소를 지정
+        break;
+      case "다음" : url = "https://www.daum.net";
+        break;
+      case "네이트" : url = "https://www.nate.com";
+        break;
+      case "네이버" : url = "https://www.naver.com";
+        break;
+      default : 
+        alert("보기중에 없는 사이트임");
+        location.reload();
+    }
+    //url 변수에 값이 들어있을 경우 url변수에 있는 경로로 이동
+    if(url) location.href = url
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

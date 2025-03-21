@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <title>로그인체크</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="loginForm">
+    <label for="username">User Name :</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password :</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <!-- 버튼을 클릭하면 checkLogin함수가 호출 -->
+    <button type="button" onclick="checkLogin()">Login</button>
+  </form>
+  <p id="message"></p>
+
+
+  <script>
+    function checkLogin(){
+      // console.log("성공")
+
+      const validUsername = 'user';
+      const validPassword = 'pass';
+
+      //1. username 변수에 #username에 입력한 값을 ,password변수에 #password에 입력한 값을 할당
+      const username = document.querySelector("#username").value;
+      const password = document.querySelector("#password").value;
+      // console.log(username, password)
+
+      //2. username과  password가 validUsername과 validPassword와 둘다 올바른지 확인
+      const isLoginValid = (username === validUsername) && (password === validPassword);
+      // console.log(isLoginValid)
+
+      //아이디가 message 인 요소를 선택
+      const messageE1 = document.querySelector("#message");
+      //3. username과 password가 올바르면 (true) massageE1에 "로그인 성공"이라는 글자를 넣어주고,
+      // username과 password중 하나라도 다르면 "로그인 실패"라는 글자를 넣어줍니다.
+
+      if(isLoginValid){
+        messageE1.style.color = 'green';
+        messageE1.textContent = '로그인 성공';
+      }else{
+        messageE1.style.color = 'red';
+        messageE1.textContent = '로그인 실패';
+      }
+    }
+  </script>
+</body>
+</html>

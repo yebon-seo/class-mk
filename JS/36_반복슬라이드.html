@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인터벌 슬라이드</title>
+  <style>
+    .bigbox {
+      width: 400px;
+      height: 400px;
+      margin: 50px auto; 
+      overflow: hidden;
+    }
+    .box {
+      position: relative;
+      width: 1200px;
+      height: 300px;
+    }
+    .box img{
+      position: absolute;
+      /* left: 0; */
+      transition: opacity 0.3s;
+    }
+    .box .left{left: 0;}
+    .box .leftPlus400{left: 400px; z-index: -1;}
+    .box .leftMinus400{left:-400px;}
+  </style>
+</head>
+<body>
+  <div class="bigbox">
+    <div class="box">
+      <img src="images/인터벌슬라이드/img1.jpg" class="left0" alt="이미지1">
+      <img src="images/인터벌슬라이드/img2.jpg" class="leftPlus400" alt="이미지2">
+      <img src="images/인터벌슬라이드/img3.jpg" class="leftPlus400" alt="이미지3">
+      <img src="images/인터벌슬라이드/img4.jpg" class="leftPlus400" alt="이미지4">
+    </div>
+  </div>
+
+  <script>
+    let i = 0; //순서를 카운트할 변수
+
+    const boxImgs = document.querySelectorAll(".box img")
+
+    function slide(){
+      // i가 박스imgs의 갯수와 같으면 i값을0으로 할당
+      // (i === boxImgs.length) && (i = 0)
+      //i가 0~3까지는 좌변이 반환되고 i가 4가되면 우변이 반환되어 i값을 0으로 초기화 시킨다.
+      if (i >= boxImgs.length) i = 0
+
+      boxImgs[i].className = 'leftMinus400'
+      boxImgs[(i+1) % boxImgs.length].className = 'left0';
+      boxImgs[(i+2) % boxImgs.length].className = 'leftPlus400';
+      i++;
+      
+    }
+    setInterval(slide,3000);
+  </script>
+</body>
+</html>

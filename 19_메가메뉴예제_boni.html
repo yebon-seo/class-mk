@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메가메뉴 정렬예제</title>
+  <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+
+</head>
+<style>
+  *{margin: 0; padding: 0; box-sizing: border-box;}
+  ul{list-style: none;}
+  a{text-decoration: none;}
+
+  .container {
+    min-width: 1200px;
+  }
+  .container > nav {
+    width: 1200px;
+    margin: auto;
+  }
+  .container > nav ul {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  .container > nav > ul > li{
+    width: 200px;
+    height: 80px;
+  }
+  .container > nav > ul > li a{
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    display: block;
+    line-height: 80px;
+    text-align: center;
+  }
+  .container > nav > ul > li a i {
+    padding-right: 10px;
+  }
+
+  /*hover시 이벤트*/
+  .container > nav > ul > li a:hover{
+    color: #adc477;
+  }
+
+/*====================================*/
+
+  /*서브메뉴*/
+  .container > .sub-menu{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 35px 30px;
+    background-color: #cddaae;
+    width: 100%;
+    margin: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .container > .sub-menu > article > h2{
+   font-size: 16px;
+   padding-bottom: 32px;
+  }
+  .container > .sub-menu > article a {
+    font-size: 12px;
+    color: #666;
+  }
+
+  /*hover시 이벤뚜*/
+  .container > .sub-menu > article a:hover {
+    color: #adc477;
+    font-weight: bold;
+  }
+
+</style>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li  style="color: #adc477;"><a class="main" href="#"><i class="fa-solid fa-bars"></i>전체카테고리</a></li>
+        <li><a href="#">베스트 상품</a></li>
+        <li><a href="#">신상품</a></li>
+        <li><a href="#">오늘만 특가</a></li>
+        <li><a href="#">알뜰쇼핑</a></li>
+        <li><a href="#">벌크쇼핑</a></li>
+      </ul>
+    </nav>
+    
+    <div class="sub-menu">
+      <article>
+        <h2>매일채움견과</h2>
+        <ul>
+          <li><a href=#>에브리데이넛츠 시리즈</a></li>
+          <li><a href=#>프리미엄 시리즈</a></li>
+          <li><a href=#>실속있는 시리즈</a></li>
+          <li><a href=#>THE 시리즈</a></li>
+          <li><a href=#>낱봉 구매</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>견과류</h2>
+        <ul>
+          <li><a href=#>견과류</a></li>
+          <li><a href=#>브라질너트</a></li>
+          <li><a href=#>사치인치</a></li>
+          <li><a href=#>알토리꿀밤</a></li>
+          <li><a href=#>시즈닝 견과류</a></li>
+          <li><a href=#>견과 선물세트</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>건과일류</h2>
+        <ul>
+          <li><a href=#>건블루베리</a></li>
+          <li><a href=#>건크랜베리</a></li>
+          <li><a href=#>건망고</a></li>
+          <li><a href=#>건자두</a></li>
+          <li><a href=#>건파인애플</a></li>
+          <li><a href=#>건포도</a></li>
+          <li><a href=#>건파파야</a></li>
+          <li><a href=#>건타트체리</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>믹스너트</h2>
+        <ul>
+          <li><a href=#>용기류</a></li>
+          <li><a href=#>파우치류</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>스낵류</h2>
+        <ul>
+          <li><a href=#>스낵바</a></li>
+          <li><a href=#>과자류</a></li>
+          <li><a href=#>초콜릿</a></li>
+          <li><a href=#>육포</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>분말/파우더</h2>
+        <ul>
+          <li><a href=#>용기류</a></li>
+          <li><a href=#>파우치류</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>백화점/대형마트</h2>
+        <ul>
+          <li><a href=#>대형마트</a></li>
+          <li><a href=#>백화점</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>헛깨로확깨!</h2>
+      </article>
+    </div>
+  </div>
+
+
+  <script>
+    const main = document.querySelector(".main");
+    const container = document.querySelector(".container");
+    const sub = document.querySelector(".sub-menu");
+
+    main.addEventListener("mouseover", () => {
+      sub.style.opacity = 1;
+      sub.style.visibility = "visible";
+    })
+
+    container.addEventListener("mouseout", (e) => {
+      sub.style.opacity = 0;
+      sub.style.visibility = "hidden";
+    })
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid속성</title>
+  <style>
+    *{box-sizing: border-box;}
+    body {
+      margin: 0;
+    }
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 1px solid rgb(255, 255, 255);
+    }
+    .color1{background-color: tomato;}
+    .color2{background-color: orange;}
+    .color3{background-color: yellow;}
+    .color4{background-color: yellowgreen;}
+    .color5{background-color: rgb(55, 198, 255);}
+
+    /*grid*/
+    .container {
+      display: grid;
+      /*몇개의 열(column)을 만들어 줄 것인지 크기는 어떻게 설정할 것인지를 정의*/
+      grid-template-columns: 100px 200px 100px;
+      /*몇개의 줄(row)을 만들어 줄 것인지 설정*/
+      /* grid-template-rows:  200px 200px 100px 100px; */
+
+      /*repeat 함수: repeat (반복할 횟수,크기)*/
+      grid-template-columns: repeat(5,100px);
+
+      /*%단위 ,fr단위 활용*/
+      grid-template-columns: repeat(5,20%);
+      /*fr :배율로 칸의 갯수와 크기를 설정*/
+      grid-template-columns: 1fr 2fr 1fr;
+      
+      /*각 row의 크기를 150px로 설정*/
+      grid-auto-rows: 150px;
+      /*minmax(최소값, 최대값)함수 : */
+      grid-auto-rows: minmax(150px,auto);
+
+      /*컨텐츠 사이의 여박*/
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+
+      /*축약형*/
+      grid-gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item color1">바부양</div>
+    <div class="item color2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur facere tempora perspiciatis enim assumenda porro placeat facilis consequatur quibusdam nihil, esse debitis dolore obcaecati numquam corrupti rerum corporis hic ipsum.
+    Quibusdam repellat accusantium sint ipsum maiores cupiditate odit at beatae, ducimus accusamus deleniti voluptate minima modi consectetur eos nulla neque hic autem similique? Voluptatibus nulla quod dignissimos. Placeat, quis quae.</div>
+    <div class="item color3">Item3</div>
+    <div class="item color4">Item4</div>
+    <div class="item color5">Item5</div>
+    <div class="item color1">바부양</div>
+    <div class="item color2">Item7</div>
+    <div class="item color3">Item8</div>
+    <div class="item color4">Item9</div>
+    <div class="item color5">Item10</div>
+  </div>
+</body>
+</html>

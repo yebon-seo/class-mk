@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨텐츠정렬 예제 2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #ccc;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 1200px;
+      height: 100vh;
+      position: relative;
+      margin: auto;
+    }
+
+    .nav-bar {
+      width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+
+    }
+
+    .nav-bar>.logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-bar>ul {
+      display: flex;
+      gap: 50px;
+    }
+
+    .nav-bar >ul>li {
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-bar >ul>li>a{
+      display: block;
+      padding:10px
+    }
+
+    .nav-bar>ul>li:hover {
+      border-bottom: 3px solid #333;
+      transition: .3s;
+    }
+
+    .main-content {
+      width: 100%;
+      position: absolute;
+      top:50%;
+      text-align: center;
+    }
+
+    .main-content > .botton {
+      margin-top: 50px;
+      font-size: 30px;
+      color: #333;
+    }
+
+    .main-content h1{
+     color: #333;
+    }
+
+    .botton a{
+      display: inline-block;
+      width: 60px;
+    }
+  
+    /* .botton .prev{
+      margin-right: 20px;
+    } */
+
+    .dots {
+      position: absolute;
+      width: 1200px;
+      bottom: 50px;
+    }
+
+    .dots >ul{
+      display: flex;
+      justify-content:center;
+    }
+
+    .dots > ul >li{
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 3px;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+
+    .dots > ul >li:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav-bar">
+      <h2 class="logo"><a href="#">LOGO</a></h2>
+      <ul>
+        <li><a href=#>about</a></li>
+        <li><a href=#>news</a></li>
+        <li><a href=#>portfolio</a></li>
+        <li><a href=#>board</a></li>
+        <li><a href=#>album</a></li>
+        <li><a href=#>contact</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+    <h1>Lorem Ipsum is simply dummy text<br> of the printing and typesetting industry.</h1>
+    <div class="botton">
+      <a href=# class="prev">&#10094;</a>
+      <a href=# class="next">&#10095;</a>
+    </div>
+  </div>
+
+    <div class="dots">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

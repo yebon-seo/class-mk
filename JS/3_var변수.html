@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>var,let const</title>
+</head>
+<body>
+  <script>
+    //var키워드로 변수선언
+    //1.중복선언이 가능
+    var x = 1;
+    var y = 1;
+
+    //var 키워드로 선언된 변수는 같은 스코프 내에서 중복 선언을 허용한다.
+    //초기화 문이 있는 변수 선언문은 자바스크립트 엔진에 의해 var키워드가 없는 것처럼 동작한다.
+    var x = 100;
+
+    //초기화 문이 없는 변수 선언문은 무시된다.
+    var y;  //무시됨
+
+    console.log(x);
+    console.log(y);
+
+    //var = 함수 레벨 스코프
+    //var 키워드는 함수의 코드 블록만을 지역 스코프로 인정한다
+    //if문,for문,switch 문 등의 코드 블록은 지역스코프로 인정하지 않는다.
+
+    if(true){
+      //x는 전역변수다, 이미 선언된 전역변수x가 있으므로 x변수는 중복 선언된다.
+      var x = 10;
+    }
+    console.log(x);
+    //함수 레벨 스코프는 전역 변수를 남발할 가능성이 높다.
+
+    //변수 호이스팅
+    // var키워드로 변수를 선언하면 변수 호이스팅에 의해 스코프의 선두로 끌어 올려진 것처럼
+    // 동작한다.
+    // var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다, 단 할당문 이전에 변수를 참조하면
+    // 언제나 undefined를 반환한다.
+
+    //2. 변수 foo는 undifined로 초기화 된다
+    console.log(foo) //undifined
+
+    //변수에 값을 할당
+    foo = 123;
+    console.log(foo) //123
+    
+    //1. 변수 선언은 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 실행된다.
+    var foo;
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 위임</title>
+</head>
+<body>
+  <button type="button" class="btn1">버튼 추가</button>
+  <button type="button" class="btn2">버튼 제거</button>
+
+  <ul class="itemlist">
+    <li><input type="button" value="button1"></li>
+    <li><input type="button" value="button2"></li>
+  </ul>
+
+  <script>
+    //매번 요소가 새로 추가될 때 마다 이벤트 리스너를 새로 작성하는것은 힘듬
+    //=> 이벤트 위임을 활용하면 매번 작성하지 않아도 돼
+
+    //itemlist를 선택
+    const itemlist = document.querySelector(".itemlist");
+
+    //버튼을 감싸고 있는 부모요소에 이벤트를 발생시킴,부모한테 위임을 받음
+    itemlist.addEventListener("click",(e) => {
+      alert(`${e.target.value}클릭`)
+    })
+
+    const btn1 = document.querySelector(".btn1");
+    let i = 2;//버튼 글자뒤에 붙는 순번
+    btn1.addEventListener("click",() => {
+      i++;//순번이 늘어나야돼
+    const itemlist = document.querySelector(".itemlist")
+
+    //요소를 생성
+    const li = document.createElement("li");
+    const input = document.createElement("input");
+
+    input.setAttribute("type","button")
+    input.setAttribute("value","button"+i) // 버튼순번이 하나씩 늘어나야 하니까 여기다 넣어조
+    
+    li.appendChild(input)
+    itemlist.appendChild(li);
+    })
+
+    //이벤트 버블링의 원리를 활용해 하위에서 발생한 클릭 이벤트를 상위요소인 .itemlist태그에서 감지하는 것
+    
+    const btn2 = document.querySelector(".btn2").addEventListener("click",() => {
+      const li = document.querySelector(".itemlist > li:last-child")
+      i--;
+      li.remove();
+    })
+    input.remove
+  </script>
+</body>
+</html>

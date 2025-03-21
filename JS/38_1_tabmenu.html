@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tabmenu</title>
+  <style>
+    ul{
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      height: 60px;
+      user-select: none;
+    }
+    .changeBg {
+      background-color: rgb(100, 212, 212) !important;
+    }
+  </style>
+</head>
+<body>
+  <ul class="tab_menu">
+    <li onclick="tabMenu()">공지사항</li>
+    <li>알림마당</li>
+    <li>보도자료</li>
+    <li>스파이</li>
+    <li>채용정보</li>
+  </ul>
+
+  <script>
+    let tab = document.querySelector(".tab_menu")
+    let tabContent = document.querySelectorAll(".tab_menu > li" )
+
+    tab.style.backgroundColor = "pink"
+
+      for(let i = 0; i < tabContent.length; i++){
+        tabContent[i].style.color = "red"
+        tabContent[i].style.fontWeight = "500"
+        tabContent[i].style.fontSize = "12px"
+        // tabContent[i].addEventListener("click", () => {
+        //     tabContent[i].style.backgroundColor = "greenyellow";
+        // });
+      }
+      
+      tabContent[2].style.color = "black" /*이렇게 하는거 맞네*/
+      tab.firstElementChild.style.color = "purple"
+      tab.children[1].style.color = "blue"
+      tab.lastElementChild.style.color = "green"
+
+    
+      //내 버전
+      // tab.addEventListener("click",() =>{
+      //   tab.style.backgroundColor = "skyblue"
+      //   console.log("왜 눌러~!");
+      // })
+      // tab.addEventListener("click",() =>{
+      //   tab.classList.toggle("changeBg");
+      //   console.log("왜 눌러~!");
+      // })
+
+      //밍구썜 버전
+      function tabMenu(){}
+        tabContent[0].addEventListener("click", () => {
+          tab.style.backgroundColor = "aqua"
+        })
+
+      // 함수로 감싸버린 내 버전
+    //   function bgColor(){
+    //     for(let i = 0; i < tabContent.length; i++){
+    //       tabContent[i].addEventListener("click", () => {
+    //         tabContent[i].style.backgroundColor = "green";
+    //     });
+    //   }
+    // }
+      
+    //   bgColor();
+
+    // 함수를 벗겨버린 내 버전 (저 위에 for문에 넣어도 됑~!)
+        for(let i = 0; i < tabContent.length; i++){
+          tabContent[i].addEventListener("click", () => {
+            tabContent[i].style.backgroundColor = "greenyellow";
+        });
+      }
+
+      
+
+      
+  </script>
+</body>
+</html>

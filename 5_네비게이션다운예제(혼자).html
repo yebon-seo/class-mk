@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네비게이션 다운 예제</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .container {
+      width: 100%;
+      background-color: rgb(255, 0, 170);
+      min-width: 1200px;
+    }
+
+    .navbar>.menu {
+      width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      height: 50px;
+    }
+
+    .navbar>.menu>ul {
+      display: flex;
+      gap: 60px;
+      font-size: 18px;
+    }
+
+    .navbar>.menu > li {
+      position: relative;
+    }
+
+    .dropdown {
+      display: none;
+      background-color: #777777;
+      position: absolute;
+      top: 50px;
+      padding: 5px 0;
+
+    }
+
+    .dropdown li {
+      width: 150px;
+      line-height: 38px;
+      padding-left: 10px;
+    }
+
+    .dropdown a {
+      font-size: 14px;
+      display: block;
+      width: 150px;
+    }
+
+    .menu>ul>li:hover .dropdown {
+      display: block;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="menu">
+        <p><a class="logo" href="#"><b>SHAM</b>MAH</a></p>
+        <ul>
+          <li><a href="#">about</a>
+          <ul class="dropdown">
+            <li><a href="#">My name</a></li>
+            <li><a href="#">Birth Day</a></li>
+            <li><a href="#">Education</a></li>
+          </ul>
+        </li>
+
+          <li><a href="#">news</a>
+          <ul class="dropdown">
+            <li><a href="#">Today News</a></li>
+            <li><a href="#">Social</a></li>
+            <li><a href="#">Information</a></li>
+          </ul>
+        </li>
+
+          <li><a href="#">portfolio</a>
+          <ul class="dropdown">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Ptintout</a></li>
+            <li><a href="#">My photo</a></li>
+            <li><a href="#">Illustration</a></li>
+          </ul>
+        </li>
+
+          <li><a href="#">board</a>
+          <ul class="dropdown">
+            <li><a href="#">Notice</a></li>
+            <li><a href="#">Free Board</a></li>
+            <li><a href="#">Contact Me</a></li>
+          </ul>
+        </li>
+
+          <li><a href="#">album</a>
+          <ul class="dropdown">
+            <li><a href="#">Our Family</a></li>
+            <li><a href="#">My friends</a></li>
+          </ul>
+        </li>
+
+          <li><a href="#">contact</a>
+          <ul class="dropdown">
+            <li><a href="#">Location</a></li>
+            <li><a href="#">E-mail</a></li>
+            <li><a href="#">Mobile Phone</a></li>
+          </ul>
+        </li>
+
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

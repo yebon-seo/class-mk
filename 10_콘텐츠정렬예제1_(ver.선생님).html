@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨텐츠 레이아웃 정렬</title>
+  <style>
+    *{margin: 0; padding: 0;box-sizing: border-box;}
+    ul {list-style: none;}
+
+    .wrap {
+      width: 1180px;
+      margin: auto;
+    }
+
+    /*클리어 픽스 핵 이걸 꼭 해줘야 함!!!다음요소가 밑에 올 수 있도록*/
+    .wrap::after { 
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .b1 {
+      font: bold 16px 1.4 arial; /*축약형*/
+      width: 360px;
+      height: 480px;
+      background-image: url(images/layout01.png); /*축약형-background : url() center/cover(사이즈는 슬러쉬)*/
+    }
+
+    .b2 {
+      width: 560px;
+      height: 240px;
+      background: url(images/layout02.png);
+    }
+    
+    .b3, .b4{
+      width: 260px;
+      height: 240px;
+      background-color: white;
+    }
+    
+    .b5 {
+      width: 560px;
+      height: 240px;
+      background: url(images/layout03.png);
+    }
+
+    .box {
+      float: left;
+      padding: 40px;
+    }
+
+    .box > h2 {
+      font-size: 16px;
+      color: white;
+      line-height: 1.8em;
+    }
+
+    .b3 > h2, .b4 > h2 {
+      color: #333;
+    }
+
+    .box > hr {
+      width: 20px;
+      margin: 20px 0;
+      border: 1px solid #fff;
+    }
+
+    .b3 > hr, .b4 > hr {
+      border-color: rgb(74, 185, 230);
+    }
+
+    .box li {
+      font-size: 12px;
+      font-weight: normal;
+      color: #fff;
+      line-height: 1.6;
+      letter-spacing: 1px;/*자간 조절*/
+    }
+
+    .b3 li,
+    .b4 li {
+      color: #333;
+    }
+
+    .b2 img{
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box b1">
+      <h2>제품기획&middot;개발&middot;생산</h2>
+      <hr>
+      <ul>
+        <li>UV소독</li>
+        <li>CREAN</li>
+        <li>소형가전</li>
+        <li>BEAUTY</li>
+      </ul>
+    </div>
+
+    <div class="box b2">
+      <h2>국내를 넘어<br>
+      세계로 도약하는 기업
+      </h2>
+      <img src="images/global_nobel.png" alt="logo">
+    </div>
+
+    <div class="box b3">
+      <h2>Research &amp; Devlope</h2>
+      <hr>
+      <ul>
+        <li>센서개발</li>
+        <li>UV LED 적용기술</li>
+      </ul>
+    </div>
+
+    <div class="box b4">
+      <h2>ODM / OEM</h2>
+      <hr>
+      <ul>
+        <li>제품 기획</li>
+        <li>금형 설계</li>
+        <li>디자인/설계</li>
+        <li>시제품 제작</li>
+        <li>회로 설계</li>
+        <li>양산품 제작</li>
+      </ul>
+    </div>
+
+    <div class="box b5"></div>
+
+  </div>
+</body>
+</html>

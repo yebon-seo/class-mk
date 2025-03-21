@@ -1,0 +1,29 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+a {text-decoration: none;}
+
+.container {
+  width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;} /*플로트를 감싸야해서*/
+
+.content-box {
+  width: 520px;
+  float: left;
+  margin: 10px;
+  }
+
+.content-box .title-img {
+  width: 160px;
+  height: 160px;
+  margin-right: 20px;
+  float: left;
+}
+
+.content {
+  width: 340px;
+  height: 160px;
+  float: right;
+}
+
+.content .title{font-size: 24px;}
+.content p{font-size: 14px;margin: 10px 0;}

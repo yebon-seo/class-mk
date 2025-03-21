@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tabmenu2</title>
+  <style>
+    .on{
+      background-color: thistle;
+    }
+    ul {
+      user-select: none;
+      cursor: pointer;}
+  </style>
+
+</head>
+
+<body>
+  <ul class="tab_menu">
+    <li>공지사항</li>
+    <li>알림마당</li>
+    <li>보도자료</li>
+    <li>채용정보</li>
+  </ul>
+  <div class="tab_list">
+    <ul>
+      <li>공지사항입니다.</li>
+      <li>공지사항입니다.</li>
+      <li>공지사항입니다.</li>
+      <li>공지사항입니다.</li>
+    </ul>
+    <ul>
+      <li>알림마당입니다.</li>
+      <li>알림마당입니다.</li>
+      <li>알림마당입니다.</li>
+      <li>알림마당입니다.</li>
+    </ul>
+    <ul>
+      <li>보도자료입니다.</li>
+      <li>보도자료입니다.</li>
+      <li>보도자료입니다.</li>
+      <li>보도자료입니다.</li>
+    </ul>
+    <ul>
+      <li>채용정보입니다.</li>
+      <li>채용정보입니다.</li>
+      <li>채용정보입니다.</li>
+      <li>채용정보입니다.</li>
+    </ul>
+  </div>
+  <script>
+    const menu = document.querySelectorAll(".tab_menu > li");
+    const list = document.querySelectorAll(".tab_list > ul");
+    // console.log(menu,list)
+
+    for (let i = 0; i < menu.length; i++)
+      menu[i].addEventListener("click", () =>{
+        menu[i].classList.toggle("on");
+        list[i].classList.toggle("on");
+        // menu[i].classList.add("on");
+        // list[i].classList.add("on");
+        // menu[i].classList.remove("on");
+        // list[i].classList.remove("on");
+    })
+
+  </script>
+</body>
+
+</html>
