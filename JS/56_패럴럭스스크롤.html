@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>패럴렉스 스크롤</title>
+  <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    #banner {
+      width: 100%;
+      min-width: 1600px;
+      height: 900px;
+      position: relative;
+      overflow: hidden;
+    }
+    #banner img {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+    #banner::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(0deg,#0a2a43,transparent);
+    }
+    .bottom{
+      width: 100%;
+      height: 1000px;
+      background-color: #0a2a43;
+      font-size: 24px;
+      padding: 100px;
+      text-align: center;
+      line-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <section id="banner">
+    <img class="bg" src="images/img5/sky.png" alt="">
+    <img class="mountain" src="images/img5/mountain.png" alt="">
+    <img class="title" src="images/img5/title.png" alt="">
+    <img class="road" src="images/img5/road.png" alt="">
+    <img class="moon" src="images/img5/moon.png" alt="">
+  </section>
+  <section class="bottom">
+    <b>패럴럭스 스크롤 사이트란?</b><br>
+    <b style="color: aliceblue;">집에 가고 싶다 쇼파에 누워서 유튜브 보고싶어</b><br>
+    모니터상에서 화면이 (상하 또는 좌우)스크롤 될 때,
+    어쩌고 저쩌고 하기싫어 
+    <!-- 안감싸도 된대..나만 불안한거 맞지.,,? -->
+  </section>
+
+  <script>
+    const bg = document.querySelector(".bg")
+    const mountain = document.querySelector(".mountain")
+    const title = document.querySelector(".title")
+    const road = document.querySelector(".road")
+    const moon = document.querySelector(".moon")
+
+    window.addEventListener("scroll", () =>{
+      // 스크롤 이동값을 변수에 할당
+      //value값에 0.5를 곱하여 값을 축소시키면서 시차를 두고 움직이게
+      let value = window.scrollY;
+
+      bg.style.top = value*0.5 + "px"
+      moon.style.left = -value*0.5 + "px"
+      mountain.style.top = -value*0.1 + "px"
+      title.style.top = value*0.75 + "px"
+      road.style.top = value*0.15 + "px"
+    })
+    
+  </script>
+</body>
+</html>

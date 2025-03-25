@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date함수</title>
+</head>
+<body>
+  <script>
+    // newDate()
+    const today = new Date(); //현재날짜 정보를 변수 today에 할당
+    document.write("오늘의 날짜는 "+ today+ "<br>")
+
+    //Date객체의 다양한 메서드를 이용하여 현재 시각 및 날짜 정보를 가져옵니다.
+    document.write('연도 : '+ today.getFullYear() + "<br>")
+    document.write('월 : '+ (today.getMonth() + 1) + "<br>") //1월 = 0
+    document.write('일 : '+ today.getDate() + "<br>") //1월 = 0
+    document.write('요일 : '+ today.getDay() + "<br>") //1 = 월요일
+    document.write(today.getHours() + '시') 
+    document.write(today.getMinutes() + '분') 
+    document.write(today.getSeconds() + '초') 
+
+    //요일정보 구하기
+    const weekday = ["일", "월" ,"화", "수", "목", "금", "토"];
+    console.log(weekday[today.getDay()]+ "요일")
+
+    //특정 날짜에 대한 정보를 갖는 Date객체 생성
+    //6개의 파라미터를 입력하여 특정날짜 정보를 저장
+    const birthDay = new Date(2025,4,5,10,10,10);
+    console.log(birthDay)
+
+    today.setFullYear(2030)
+    today.setMonth(10)
+    today.setDate(11)
+    today.setHours(11)
+    today.setMinutes(11)
+    today.setSeconds(11)
+   console.log('특정 날짜로 저장 : ' + today)
+
+   //날짜 및 시간 정보의 연산
+   today.setDate(today.getDay() + 50)
+   console.log(today)
+   today.setHours(today.getHours() + 32)
+   console.log(today)
+  </script>
+</body>
+</html>

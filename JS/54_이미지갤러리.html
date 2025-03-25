@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지갤러리</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    ul,li {list-style: none;}
+    body{background-color: #333;}
+    img {display: block;}
+    #wrap {
+      width: 640px;
+      margin: 100px auto 0;
+    }
+    #nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    #nav a {
+      display: block;
+      border: 2px solid #bbb;
+      border-radius: 5px;  
+    }
+    #nav a img {
+      width: 70px;
+    }
+    #nav a.active{ border-color: gold;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <ul id="nav">
+      <li><a href="images/lop0.jpg" class="active">
+        <img src="images/thumb0.jpg" alt="그림0"></a>
+      </li>
+      <li><a href="images/lop1.jpg">
+        <img src="images/thumb1.jpg" alt="그림1"></a>
+      </li>
+      <li><a href="images/lop2.jpg">
+        <img src="images/thumb2.jpg" alt="그림2"></a>
+      </li>
+      <li><a href="images/lop3.jpg">
+        <img src="images/thumb3.jpg" alt="그림3"></a>
+      </li>
+      <li><a href="images/lop4.jpg">
+        <img src="images/thumb4.jpg" alt="그림4"></a>
+      </li>
+      <li><a href="images/lop5.jpg">
+        <img src="images/thumb5.jpg" alt="그림5"></a>
+      </li>
+      <li><a href="images/lop6.jpg">
+        <img src="images/thumb6.jpg" alt="그림6"></a>
+      </li>
+      <li><a href="images/lop7.jpg">
+        <img src="images/thumb7.jpg" alt="그림7"></a>
+      </li>
+    </ul>
+    <div id="window"><img src="images/lop0.jpg"></div>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll("#nav a");
+    const displayImg = document.querySelector("#window img");
+
+    links.forEach(link =>{
+      link.addEventListener("click",(e) =>{
+        e.preventDefault()
+        // console.log(e)
+
+        //()안에 있는거 다 읽어옴 
+        const imgUrl = link.getAttribute("href");
+
+        // 디스플레이 이미지에 읽어온 url경로를 src경로값으로 설정
+        // displayImg.setAttribute("src", imgUrl); //이렇게 써도 되고
+        displayImg.src = imgUrl //이렇게 써도되고
+        links.forEach(link => link.classList.remove("active"));
+        link.classList.add("active")
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시간별테마변경</title>
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/53_시간별테마변경.css">
+
+</head>
+<body>
+  <!-- 전체프레임 -->
+   <div id="wrap" class="night">
+    <!-- 전체 화면 구름 -->
+    <img src="images/phone/cloud1.png" alt="">
+    <img src="images/phone/cloud2.png" alt="">
+    <!-- 로고(배경이미지로 설정) -->
+    <h1 class="logo">logo</h1>
+
+    <!-- 주 메뉴 -->
+     <ul id="gnb">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Company</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Contact</a></li>
+     </ul>
+     <!-- sns 버튼 -->
+     <ul id="sns">
+      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+     </ul>
+     <article>
+      <p><strong>lorem</strong> Ipsum</p>
+      <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas autem ut, nihil dolorum, </em>
+     </article>
+     <!-- 모바일 프레임 -->
+      <figure>
+        <p>
+          <!-- 시계 -->
+           <span>00</span>:<span>00</span>:<span>00</span>
+           <!-- 모바일 화면 구름 -->
+           <img src="../JS/images/phone/cloud1.png" alt="" class="cl1">
+           <img src="../JS/images/phone/cloud2.png" alt="" class="cl2">
+        </p>
+        <!-- 테마버튼 -->
+         <nav>
+          <ul>
+            <li><a href="#">morning</a></li>
+            <li><a href="#">afternoon</a></li>
+            <li><a href="#">evening</a></li>
+            <li><a href="#">night</a></li>
+          </ul>
+         </nav>
+      </figure>
+   </div><!--#wrap END-->
+
+   
+   <script>
+     function watchClock(){
+       function leftPad(number){
+         //넘버가 10미만이면 넘버앞에 영을 붙여서 반환
+         if(number < 10) return `0${number}`
+  
+         return number;
+       }
+
+       const now = new Date()
+       
+       const hr = leftPad(now.getHours()); /*(%12)나머지 연산자를 활용하면 12시간제로 표현됨*/
+       const min = leftPad(now.getMinutes());
+       const sec = leftPad(now.getSeconds());
+       
+       //시분초를 적용할 스팬태그 선택
+       const span = document.querySelectorAll("figure span");
+       span[0].textContent = hr;
+       span[1].textContent = min;
+       span[2].textContent = sec;
+      }
+      watchClock();
+      setInterval(watchClock,1000);
+
+      //시간에 따라 테마변경
+      const hr = new Date().getHours();
+      const navLi = document.querySelectorAll("nav li")
+      const wrap = document.querySelector("#wrap")
+      // console.log(hr)
+   
+      if(hr >= 5 && hr < 11){//현재시간이 5시보다 같거나 크고,11시보다 작을때 (morning)
+        wrap.className = ''; //클래스이름을 모두제거
+        wrap.className = 'morning';
+        navLi.forEach(li => li.classList.remove("on"))
+        // navLi.forEach(li => li.className = "") 똑같음
+        navLi[0].className = "on"
+      }else
+      if(hr >= 11 && hr < 16){
+        wrap.className = ''; //클래스이름을 모두제거
+        wrap.className = 'afternoon';
+        navLi.forEach(li => li.classList.remove("on"))
+        // navLi.forEach(li => li.className = "") 똑같음
+        navLi[1].className = "on"
+      }else
+      if(hr >= 16 && hr < 22){
+        wrap.className = ''; //클래스이름을 모두제거
+        wrap.className = 'evening';
+        navLi.forEach(li => li.classList.remove("on"))
+        // navLi.forEach(li => li.className = "") 똑같음
+        navLi[2].className = "on"
+      }else
+      if(hr >= 22 && hr < 5){
+        wrap.className = ''; //클래스이름을 모두제거
+        wrap.className = 'night';
+        navLi.forEach(li => li.classList.remove("on"))
+        // navLi.forEach(li => li.className = "") 똑같음
+        navLi[3].className = "on"
+      }
+      
+      navLi.forEach((li,idx) => li.addEventListener("click",() => {
+        const classChange = li.children[0].textContent
+        // console.log(classChange)
+        wrap.className = ""; //먼저 적용된 클래스 제거
+        wrap.className = classChange;
+        /*navLi.forEach(li => li.className = "")
+        li.className = "on"*/
+      }))
+
+
+
+ 
+
+      for(let i = 0;i < navLi.length;i++){
+        navLi[i].addEventListener("click",() => {
+           //기존 클래스들 모두제거
+      for (let j = 0;j < navLi.length;j++) {
+        navLi[j].classList.remove("on")
+      }
+          navLi.className = ""
+          navLi[i].classList.add("on")
+        })
+      }
+      </script>
+</body>
+</html>

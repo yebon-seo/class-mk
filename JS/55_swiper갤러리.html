@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스와이프갤러리</title>
+    <!-- swiper CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 폰트어썸 -->
+    <script src="https://kit.fontawesome.com/63c7e48b93.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/55_swiper갤러리.css">
+    <!--defer를 꼭 넣어줘야 핸-->
+    <script src="../script/55_swiper갤러리.js" defer></script>
+
+
+</head>
+<body>
+  <div class="wrap">
+    <!-- 제목 -->
+    <h1>UI/UX <span>PORTFOLIO</span></h1>
+    <!-- 오토플레이 버튼 -->
+    <ul class="auto">
+      <li class="btnStart"><i class="fas fa-play"></i></li>
+      <li class="btnStop"><i class="fas fa-pause"></i></li>
+    </ul>
+
+    <!-- 스와이프 갤러리 -->
+     <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="inner">
+          <div class="content">
+            <img src="images/pic2/pic1.png" alt="">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+        </div>
+      </div> <!--슬라이드가 닫힘-->
+      <div class="swiper-slide">
+        <div class="inner">
+          <div class="content">
+            <img src="images/pic2/pic2.png" alt="">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+        </div>
+      </div><!--슬라이드가 닫힘-->
+      <div class="swiper-slide">
+        <div class="inner">
+          <div class="content">
+            <img src="images/pic2/pic3.png" alt="">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+        </div>
+      </div><!--슬라이드가 닫힘-->
+      <div class="swiper-slide">
+        <div class="inner">
+          <div class="content">
+            <img src="images/pic2/pic4.png" alt="">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+        </div>
+      </div><!--슬라이드가 닫힘-->
+      <div class="swiper-slide">
+        <div class="inner">
+          <div class="content">
+            <img src="images/pic2/pic5.png" alt="">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+        </div>
+      </div><!--슬라이드가 닫힘-->
+      
+
+     </div>
+     <!-- 좌우버튼 -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- 페이징 버튼 -->
+       <div class="swiper-pagination"></div>
+  </div>
+
+
+</body>
+</html>
