@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>구글지도API</title>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJO1Ztof7CjNTRpzFxvcgvYaNJ8GoIf4U&callback=initMap"></script>
+</head>
+
+<body>
+  <div id="map" style="height: 600px;"></div>
+  <script>
+    //initMap 을 함수명으로 사용했기 때문에, window객체의 initMap속성에 콜백함수 할당
+    window.initMap = function () {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        //두번째 인자로 구글지도를 어떻게 보여줄건지 옵션을 넘길 수 있다.
+        //center 지도의 중앙 위치의 위도와 경도를 설정해주고, zoom옵션에 지도를 얼마나 가깝게 볼건지 설정해
+        center: { lat: 37.5400456, lng: 126.9921017 },
+        zoom: 12, //줌레벨
+      })
+
+      //마커로 위치표시하기
+      //google.maps.Marker()생성자 함수에 마커를 놓고싶은 위치의 위도 경도와 생성한 지도 객체를 넣어주면 됨
+      const malls = [
+        { label: "C", name: "코엑스몰", lat: 37.5115557, lng: 127.0595261 },
+        { label: "G", name: "고투몰", lat: 37.5062379, lng: 127.0050378 },
+        { label: "D", name: "동대문시장", lat: 37.566596, lng: 127.007702 },
+        { label: "I", name: "IFC몰", lat: 37.5251644, lng: 126.9255491 },
+        { label: "L", name: "롯데월드타워몰", lat: 37.5125585, lng: 127.1025353 },
+        { label: "M", name: "명동지하상가", lat: 37.563692, lng: 126.9822107 },
+        { label: "T", name: "타임스퀘어", lat: 37.5173108, lng: 126.9033793 },
+      ];
+
+      //객체에서 라벨 네임 위도 경도 값을 구조분해할당
+      //구조분해할당
+      //나중에 이 경계를 사용하여 지도에서 모든 마커가 보이도록 자동으로 조정할 수 있습니다.
+      const bounds = new google.maps.LatLngBounds();
+      const infoWindow = new google.maps.InfoWindow();
+
+      const object = {
+        label: "C",
+        name: "코엑스몰",
+        lat: 37.5115557,
+        lng: 127.0595261
+      }
+      const { label, name, lat, lng } = object;
+
+      malls.forEach(({ label, name, lat, lng }) => {
+        //마커 위치 나타내기
+        const marker = new google.maps.Marker({
+          position: { lat, lng }, //위도와 경도를 포지션속성으로 전달
+          label, //마커에 표시할 레이블을 설정
+          map, //마커에 추가 할 지도를 지정
+        })
+        //마커의 위치정보 넘겨주기
+        bounds.extend(marker.position) //모든 마커의 위치가 포함된 경계상자가 업데이트
+        //마커에 클릭이벤트 생성
+        marker.addListener("click", () => {
+          //사용자가 클릭한 마커의 위치로 지도를 부드럽게 이동시킴
+          map.panTo(marker.position) //>>>쓰기싫으면 안써도 됑
+
+          //infowindow객체의 내용을 설정합니다.
+          infoWindow.setContent(name);
+          infoWindow.open({
+            anchor: marker, //인포 윈도우의 앵커로 사용될 마커를 지정
+            map, //인포 윈도우가 열릴 지도 객체를 지정
+          })
+        })
+        //fitBounds()
+        map.fitBounds(bounds)//모든 마커가 지도 안에 잘 보이도록 줌 레벨과 중심을 성정
+      })
+    }
+  </script>
+</body>
+
+</html>

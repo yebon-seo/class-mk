@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animateAPI</title>
+  <style>
+    body {
+      height: 3000px;
+    }
+
+    #heading {
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="heading">애니메이션</h1>
+  <script>
+    const heading = document.querySelector("#heading")
+    let isAnimating = true;
+
+    const keyframes = {
+      opacity: [0, 1],//시작값, 종료값
+      translate: ['0 50px', 0]
+    }
+
+    const options = {
+      duration: 2000,
+      easing: 'ease',
+      fill: "forwards" /*마지막 프레임 속성을 유지 backward 속성을 유지*/
+    }
+
+    addEventListener("scroll", (e) => {
+      if (isAnimating) {
+        const scrollMove = window.scrollY;
+        // console.log(scrollMove) 스크롤 이동값을 구해줌
+        //스크롤을 300만큼 내렸을때
+        if (scrollMove > 300) {
+          isAnimating = false;
+          //(움직이는 내용 ,재생시간)
+          heading.animate(keyframes, options)
+          // window.removeEventListener("scroll",(e))
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

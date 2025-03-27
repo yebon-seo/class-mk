@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise()</title>
+</head>
+<body>
+  <script>
+    //별도의 함수로 감싸서 사용하는 것이 일반적이다.
+    function getData(){
+      return new Promise(function(resolve, reject){
+        let data = 100;
+        resolve(data) //이행상태가 되면 data 값을 then()으로 전달
+      })
+    }
+
+    //resolve()의 결과값 data를 받음
+    getData().then(function(data){
+      console.log(data) //100
+    })
+
+    function doSomething(){
+      return new Promise((resolve, reject) => {
+        resolve(100)
+      })
+    }
+    doSomething()
+    .then((value1) => { //Promise에서 전달받은 값을 value1로 할당
+      const data1 = value1 +50; //data1변수 Value1에 50을 더한 값을 할당
+      return data1
+    })
+    .then((value2) =>{ //위 then에서 리턴한 데이터1을 value2로 전달 받음
+      const data2 = value2 +50; 
+      return data2
+    })
+    .then((value3) =>{ //위 then에서 리턴한 데이터1을 value2로 전달 받음
+      const data3 = value3 +50; 
+      return data3
+    })
+    .then((value4) =>{ //위 then에서 리턴한 데이터1을 value2로 전달 받음
+      // const data4 = value4 +50; 
+      console.log(value4)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>여러애니메이션</title>
+  <style>
+    body{text-align: center;}
+    #heading {
+      width: 300px;
+      line-height: 100px;
+      margin: 50px auto 0;
+      background-color: tomato;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="heading">JS 애니메이션</h1>
+  <script>
+    const heading = document.querySelector("#heading")
+
+    //색이 변하는 제목
+    let keyframes = {
+      color: ["#f66", "#fc2", "#0bd", "#0c6"],
+    }
+    let options = {
+      duration : 8000,
+      direction : "alternate",
+      iterations : Infinity,
+    }
+    //흐물흐물 움직이는 제목
+    keyframes = {
+      borderRadius : [
+        `20% 50% 50% 70% / 50% 50% 70% 50%`,
+        `50% 20% 50% 50% / 40% 40% 60% 60%`,
+        `50% 40% 20% 40% / 40% 50% 50% 80%`,
+        `50% 50% 50% 20% / 40% 40% 60% 60%`,
+      ]
+    }
+    heading.animate(keyframes, options)
+  </script>
+
+</body>
+</html>

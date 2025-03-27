@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slideshow</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    body {
+      background-color: #000026;
+    }
+
+    .slideshow {
+      width: 1100px;
+      height: 300px;
+      margin: 100px auto 0;
+      position: relative;
+    }
+
+    .left-btn,
+    .right-btn {
+      font-size: 50px;
+      color: #fff;
+      line-height: 50px;
+      position: absolute;
+      top: calc(50% - 25px);
+    }
+
+    .right-btn {
+      right: 0;
+    }
+
+    /*콘텐츠*/
+    .content {
+      width: 900px;
+      height: 180px;
+      perspective: 900px;
+      /*깊이감*/
+      position: absolute;
+      top: calc(50% - 90px);
+      left: calc(50% - 450px);
+    }
+
+    .content-carrousel {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      /*자식요소를 3d공간에 배치*/
+      transition: all 0.5s;
+    }
+
+    .content-carrousel figure {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #4d444d;
+      box-shadow: 0 0 20px #000;
+      position: absolute;
+      left: calc(50% - 70px);
+    }
+
+    .content-carrousel figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .content-carrousel figure:nth-child(1) {
+      transform: rotateY(0deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(2) {
+      transform: rotateY(40deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(3) {
+      transform: rotateY(80deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(4) {
+      transform: rotateY(120deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(5) {
+      transform: rotateY(160deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(6) {
+      transform: rotateY(200deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(7) {
+      transform: rotateY(240deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(8) {
+      transform: rotateY(280deg) translateZ(250px);
+    }
+
+    .content-carrousel figure:nth-child(9) {
+      transform: rotateY(320deg) translateZ(250px);
+    }
+
+    .content-carrousel figure img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <section class="slideshow">
+    <a class="left-btn" href="#">&lt;</a>
+    <a class="right-btn" href="#">&gt;</a>
+    <div class="content">
+      <div class="content-carrousel">
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=1" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=2" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=3" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=4" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=5" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=6" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=7" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=8" alt=""></figure>
+        <figure class="shadow"><img src="https://picsum.photos/300/300?random=9" alt=""></figure>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let count = 0;
+    function updateRotation(){
+      const carrousel = document.querySelector(".content-carrousel")
+      carrousel.style.transform = `rotateY(${count}deg)`
+    }
+
+    let timer = setInterval(function(e){
+      e.preventDefault();
+      count += 0.2;
+      updateRotation();
+    }, 1000/60)
+    
+    const slideshow = document.querySelector(".slideshow")
+    const lbtn = document.querySelector(".left-btn")
+    const rbtn = document.querySelector(".right-btn")
+    
+    
+    slideshow.addEventListener("mouseenter",(e) => {
+      e.preventDefault();
+      clearInterval(timer);
+    })
+    slideshow.addEventListener("mouseleave",(e) => {
+      e.preventDefault();
+      timer = setInterval(function(){
+        count += 0.2;
+        updateRotation();
+      }, 1000/60)
+    })
+    lbtn.addEventListener("click",(e) => {
+      e.preventDefault();
+      count = Math.round((count / 40) * 40 + 40);
+      // count += 40;
+      updateRotation();
+    })
+    rbtn.addEventListener("click",(e) => {
+      e.preventDefault();
+      count = Math.round((count / 40) * 40 - 40);
+      updateRotation();
+    })
+  </script>
+</body>
+
+</html>

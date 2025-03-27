@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예외발생</title>
+</head>
+<body>
+  <button id="throwExbtn">화연이 가스 발생!</button>
+  <p id="text"></p>
+  <script>
+    const btn = document.querySelector("#throwExbtn")
+    //버튼에 클릭이벤트 생성 => throwEx함수호출
+    btn.addEventListener("click", throwEx)
+
+    function throwEx(){
+      try {
+        throw new Error("<-거북이가 밀폐된 곳에서 뀐 방귀입니다(살려주세요)")
+      }catch(ex) {
+        document.querySelector("#text").innerHTML = ex.name + "<br>"
+        //message 프로 퍼티는 오류메시지를 저장함
+        document.querySelector("#text").innerHTML += ex.message 
+        
+      }
+    }
+  </script>
+</body>
+</html>

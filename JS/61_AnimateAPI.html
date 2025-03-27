@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimateAPI</title>
+  <style>
+    body{
+      text-align: center;
+      padding: 2rem;
+    }
+    .animation-css {
+      animation: zoom 2s linear infinite;
+    }@keyframes zoom{
+      0% {scale: 1;}
+      50% {scale: 2;}
+      100% {scale: 1;}
+    }
+  </style>
+</head>
+<body>
+  <h2 class="animation-css">CSS</h2>
+  <h2 class="animation-js">javascript</h2>
+
+  <script>
+    const heading = document.querySelector(".animation-js")
+
+    //animate API 적용
+    heading.animate({
+      scale:[1,2,1]
+    },{
+      duration: 2000,/*지속시간*/
+      iterations:Infinity, //반복횟수
+    })
+
+  </script>
+</body>
+</html>
