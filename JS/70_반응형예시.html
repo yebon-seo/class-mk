@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형예시</title>
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    /*css변수사용*/
+    :root { /*이름은 내 마음대로 쓰세유*/
+      --bg-b-color:#263343;
+      --bg-w-color:#efefef;
+      --text-w-color:#f0f4f5;
+      --text-b-color:#333;
+      --accent-color:#d49466;
+
+      --padding:12px;
+
+      --font-title:36px;
+      --font-large:24px;
+      --font-medium:18px;
+      --font-small:14px;
+      --font-micro:12px;
+    }
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    ul{list-style: none;}
+    a{
+      text-decoration: none;
+      color: var(--text-w-color);
+  }
+    body{
+      font-family: Monaco;
+      color: var(--text-w-color);/*설정된 변수 사용*/
+      line-height: 1.6;
+    }
+
+    header {
+      width: 100%;
+      background-color: var(--bg-b-color);
+      padding: var(--padding);
+      position: fixed;
+      z-index: 1;
+    }
+    header > .wrap {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: var(--font-medium);
+    }
+    .logo i {
+      color: var(--accent-color);
+      font-size: var(--font-large);
+    }
+    .gnb {
+      display: flex;
+      gap: calc(var(--padding) * 4 );
+      font-size: var(--font-small);
+    }
+    .icon {
+      display: flex;
+      gap: var(--padding);
+      font-size: var(--font-small);
+      display: none;
+    }
+    .togglebtn {
+      position: absolute;
+      right: 32px;
+      color: var(--accent-color);
+      display: none;
+    }
+
+    #banner {
+      width: 100%;
+      height: 500px;
+      background: url(images/bg.png) center -100px/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 52px;
+      color: var(--bg-b-color);
+      text-align: center;
+    }
+    #banner h1 {
+      font-size: var(--font-title);
+    }
+    #banner p {
+      font-size: var(--font-medium);
+      font-weight: bold;
+    }
+    #contents {
+      width: 100%;
+      background-color: var(--bg-w-color);
+    }
+    #contents h1 {
+      font-size: var(--font-title);
+      text-align: center;
+      padding:var(--padding) 0 calc(var(--padding) * 2);
+      color: var(--text-b-color);
+    }
+    #contents .wrap {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+    #contents .imgGroup{
+      display: flex;
+      gap: calc(var(--padding) * 2);
+    }
+    .imgGroup img{width: 100%;}
+
+    @media screen and (max-width:1200px){
+      #banner {
+        background-position: center top;
+      }
+    }
+
+    /*디바이스의 넓이가 640px 이하일경우*/
+    @media screen and (max-width:640px){
+      header > .wrap {
+        flex-direction: column; /*세로정렬*/
+        align-items: flex-start;/*교차축을 flex-start로 설정하여 왼쪽정렬*/
+      }
+      .gnb {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        gap: 0;
+        display: none;
+      }
+      .gnb a {
+        display: block;
+        padding: var(--padding) 0;
+        transition: .4s;
+      }
+      .gnb a:hover{
+        background-color: var(--accent-color);
+      }
+      .icon {
+        width: 100%;
+        justify-content: center;
+        display: none;
+      }
+      .togglebtn{
+        display: block;
+      }
+      .gnb.active,
+      .icon.active { /*gnb와 icon에 active클래스가 추가되면 화면에 메뉴가 표시됨*/
+      display: flex;
+      }
+      #contents .imgGroup {
+        flex-wrap: wrap;
+        gap: 0;/*사이여백 수정*/
+      }
+      .imgGroup > li {
+        width: 50%;
+        padding: 0 var(--padding) var(--padding);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="togglebtn"><i class="fas fa-bars"></i></a>
+    <div class="wrap">
+      <div class="logo">
+        <i class="fas fa-spider"></i>
+        <a href="#">COMPANY</a>
+      </div>
+      <ul class="gnb">
+        <li><a href="#">about</a></li>
+        <li><a href="#">news</a></li>
+        <li><a href="#">portfolio</a></li>
+        <li><a href="#">board</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+      <ul class="icon">
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+      </ul>
+    </div>
+  </header>
+  <section id="banner">
+    <div class="wrap">
+      <h1>title</h1>
+      <p>some text...</p>
+    </div>
+  </section>
+  <section id="contents">
+    <div class="wrap">
+      <h1>title</h1>
+      <ul class="imgGroup">
+        <li><img src="images/eye_1.jpg" alt="eye"></li>
+        <li><img src="images/eye_2.jpg" alt="eye"></li>
+        <li><img src="images/eye_3.jpg" alt="eye"></li>
+        <li><img src="images/eye_4.jpg" alt="eye"></li>
+      </ul>
+    </div>
+  </section>
+  <script>
+    const togglebtn =document.querySelector(".togglebtn")
+    const gnb =document.querySelector(".gnb")
+    const icon =document.querySelector(".icon")
+
+    togglebtn.addEventListener("click",()=>{
+      gnb.classList.toggle("active")
+      icon.classList.toggle("active")
+    })
+
+    /*브라우저 넓이가 640이상이면 gnb와icon에 액티브 클래스 제거*/
+    window.addEventListener("resize",() => {
+      gnb.classList.remove("active")
+      icon.classList.remove("active")
+    })
+  </script>
+</body>
+</html>
